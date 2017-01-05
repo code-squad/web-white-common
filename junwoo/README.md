@@ -1,11 +1,46 @@
 # 스터디 노트 
-
 그날 배운 건 그날그날 정리합시다. 
+용어 정리
+주석 /*       */         //
+함수선언 - 함수 만들기
+함수call - 함수 실행- 함수호출
+함수는 재사용하기 위해 만든다
+함수의 의존성을 낮추는 방법? - 함수 분리하기(의미로 분리하기)
+method?
+커뮤니티를 통해 코드리뷰하며 성장하기
+var - 함수범위
+let - {}블록범위
+Babel - 문법 변환 도구
+return = 함수의 결과 (없으면 undefined)
+디버그할때 함수 호출관계 = call stack으로 확인
 
 ---
 ## 변수  
+이쁜 상자
 
 ```javascript 
-var name = 'honux';
-console.log(name)
-```
+책 배송료
+function bookCost(count, price, discount,delCost){
+
+	var total=count*price*(100-discount)/100+delCost ;
+
+	return total;
+};
+
+원의 둘레
+function circum(r){
+	var pi=3.24;
+	var result= 2*r*pi;
+    return result;
+};
+
+(x1,y1),(x2,y2) 좌표의 거리
+function distance(x1,y1,x2,y2){
+	var xdis = x1-x2;
+	var ydis = y1-y2;
+	var xydis = Math.sqrt(Math.pow(xdis,2)+Math.pow(ydis,2));
+	return xydis
+};
+디버깅하기 쉽기 위해 변수를 많이 써서 중간값을 확인하기 쉽게
+
+
