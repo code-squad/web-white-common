@@ -29,8 +29,7 @@ function bookCost(count, price, discount,delCost){
 
 원의 둘레
 function circum(r){
-	var pi=3.24;
-	var result= 2*r*pi;
+	var result= 2*r*Math.PI;
     return result;
 };
 
@@ -43,4 +42,36 @@ function distance(x1,y1,x2,y2){
 };
 디버깅하기 쉽기 위해 변수를 많이 써서 중간값을 확인하기 쉽게
 
+for(var i = 0; i<10; i++){
+	console.log(i);
+};
+
+for(초기값; 계산식; 증감){
+	계산식이 참이면 코드 실행하고 증감
+}거짓이면 나간다
+
+for 구문
+var sum = 0;
+for(var i =1; i<=10; i++){
+	sum = sum+i;
+	     console.log("i = " +  i);
+	     console.log("sum = " + sum);
+}
+
+var sum = 0;
+for(var i =1; i<=10; i++){
+	if(1%2===0)
+	sum = sum+i;
+	     console.log("i = " +  i);
+	     console.log("sum = " + sum);
+};
+
+var sum = 0;
+for(var i =1; i<=10; i=i+2){
+	if(i%2===0)
+	sum = sum+i;
+	     console.log("i = " +  i);
+	     console.log("sum = " + sum);
+    	 
+};
 
