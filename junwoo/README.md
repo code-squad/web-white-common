@@ -13,7 +13,7 @@ let - {}블록범위
 Babel - 문법 변환 도구
 return = 함수의 결과 (없으면 undefined)
 디버그할때 함수 호출관계 = call stack으로 확인
-
+API = 함수 집합체
 ---
 ## 변수  
 이쁜 상자
@@ -73,5 +73,40 @@ for(var i =1; i<=10; i=i+2){
 	     console.log("i = " +  i);
 	     console.log("sum = " + sum);
     	 
+};
+
+배열선언
+var a = [];
+a.length;
+
+Method의 기능과 return값 확인해보기
+var fruits = ["Banana", "Orange", "Apple", "Mango", "Banana", "Orange", "Apple"];
+fruits.push("Kiwi");         // 끝에 넣은 후 원소의 갯수
+8
+fruits;
+["Banana", "Orange", "Apple", "Mango", "Banana", "Orange", "Apple", "Kiwi"]
+
+var fruits = ["Banana", "Orange", "Apple", "Mango", "Banana", "Orange", "Apple"];
+fruits.indexOf("Apple"); //원소 순서번호
+2          
+fruits;
+["Banana", "Orange", "Apple", "Mango", "Banana", "Orange", "Apple"]
+
+var fruits = ["Banana", "Orange", "Apple", "Mango", "Banana", "Orange", "Apple"];
+fruits.slice(1, 3); // 1~3사이의 원소가 무엇인지
+["Orange", "Apple"]   // 반환값은 사이에 위치한 배열
+fruits;
+["Banana", "Orange", "Apple", "Mango", "Banana", "Orange", "Apple"]
+
+var fruits = ["Banana", "Orange", "Apple", "Mango", "Banana", "Orange", "Apple"];
+fruits.splice(2, 0, "Lemon", "Kiwi");    //2번째 자리에서 시작해서 0개를 지우고 삽입해라
+[]   // 반환값 = 지운배열
+fruits;
+["Banana", "Orange", "Lemon", "Kiwi", "Apple", "Mango", "Banana", "Orange", "Apple"]
+
+배열의 순회
+var fruits = ["apple","mango","banana","tomato","melon"];
+for(i=0; i<fruits.length; i++){
+	console.log(fruits[i])
 };
 
