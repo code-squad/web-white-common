@@ -110,3 +110,30 @@ for(i=0; i<fruits.length; i++){
 	console.log(fruits[i])
 };
 
+
+return을 함부로 쓰지 마라(반복이 잘 되게 해야지)
+function plus(){
+  if(!checkargs(arguments,"number")){
+    console.log("숫자가 아닙니다.");
+    return false;
+  }else{
+    console.log("전부 숫자입니다.");
+    return true;
+  }
+};
+
+function checkargs(args,type){
+  for(var i=0; i<args.length; i++){
+     
+     if(typeof args[i] !== type){
+    console.log("wrong number");
+      return false;
+     } else {
+      console.log("right number");
+      
+     }
+  }
+  return true;
+};
+
+plus(1,2,3,4,"8");
