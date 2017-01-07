@@ -1,4 +1,4 @@
-2016.01.03.화요일
+2017.01.03.화요일
 
 # 검색하는 법
 1. 영어로
@@ -39,13 +39,15 @@
 - 함수를 선언하고 리턴했을 때는 안 뜬다. 왜?
 - 자바스크립트에선느 리턴값이 없을 때, undefined 디폴트값이 출력된다.
 
-    function log(){
-      return "hello";
-    }
-    log();
-    function log(){
-    }
-    log();
+```javascript
+function log(){
+  return "hello";
+}  
+log();  
+function log(){
+}
+log();
+```
 
 ## debugger
 디버깅 중단점
