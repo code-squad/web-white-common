@@ -1,0 +1,26 @@
+function checkAllTure(arg1,arg2){
+	var strTrue = "arg are all true"
+	//debugger;
+	if(arg1 !== true) return;
+	if(arg2 !== true) return;
+	console.log(strTrue);
+}
+checkAllTure(false,false);
+
+[함수]
+1. strTrue 변수에 "arg are all true" 문자열 할당
+2. 만약 첫 번째 인자가 true가 아닐 경우, 00 반환.
+3. 만약 두 번째 인자가 ture가 아닐 경우, 00 반환.
+4. strTrue 변수값을 출력.
+
+[실행]
+1. checkAllTure 함수를 호출. 첫번째 인자로 false, 두번째 인자로 false 전달.
+2. checkAllTure 함수에서 매개변수 arg1에 false, 매개변수 arg2에 false 복사.
+3. strTrue 변수에 "arg are all true" 문자열 할당
+4. arg1은 ture 가 아니므로, 반환.
+5. 메인으로 돌아와서 반환하고 끝.
+
+가정: ture , ture 전달시, 반환 없고, "arg are all true"출력 됨.
+
+# 틀린점: return 하더라도 계속 다음줄을 실행할 줄 알았다. 하지만 return 될 시, 그 함수는 거기서 끝나버린다.
+# 의문점: 왜? 리턴하고 바로 끝나버릴까? 함수가 리턴을 하나만 한다는 것은 알지만.
