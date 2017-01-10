@@ -4,9 +4,9 @@ function Point(x, y) {
 }
 
 var getDistance = function(p1, p2) {
-	var pow = Math.pow
-	var dsquare = pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2)
-	return Math.sqrt(dsquare)
+	var pow = Math.pow;
+	var dsquare = pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2);
+	return Math.sqrt(dsquare);
 }
 
 var p1 = new Point(10,10);
