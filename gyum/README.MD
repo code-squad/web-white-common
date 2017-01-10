@@ -52,6 +52,7 @@
  - GITHUB 추가기능 설명  
  - MARKDOWN 언어 설명
    * 추가내용은 교육자료에 있는 URL 참
+   * 위 세부내용 learn_git.md 파일 참고
 
 
 # JAVASCRIPT 교육
