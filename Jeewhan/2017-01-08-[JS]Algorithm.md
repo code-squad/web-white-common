@@ -111,3 +111,67 @@ const setAlign = (n, k) => {
 // 아래는 테스트로 출력해 보기 위한 코드입니다.
 console.log(setAlign(3, 5));
 ```
+
+---
+
+##### 170109 알고리즘 문제
+
+http://tryhelloworld.co.kr/challenge_codes/42
+
+내 코드
+
+```javascript
+function expressions(num) {
+	var answer = 0;
+
+  for (let i = 1; i <= num; i++) {
+  
+    let accumulate = 0;
+    
+    for (let j = i; accumulate <= num; j++) {
+    
+      accumulate += j
+      
+      if (accumulate === num) {
+        answer += 1;
+        break;
+      }
+      
+    }
+    
+  }
+	return answer;
+}
+
+// 아래는 테스트로 출력해 보기 위한 코드입니다.
+console.log(expressions(15));
+```
+
+
+다른 분의 코드
+
+```javascript
+function expressions(num) {
+  const getMethod = n => {
+    let res = 0;
+    do {
+      res += n++;
+      if(res > num) break;
+    } while( n<=num && res < num)
+    if(res === num) return true;
+    return false;
+  }
+  let count = 0;
+  let i = 1;
+  do {
+    count += getMethod(i++) ? 1 : 0;
+  } while(i <= num);
+  return count;
+}
+
+// 아래는 테스트로 출력해 보기 위한 코드입니다.
+console.log(expressions(15));
+```
+
+---
+
