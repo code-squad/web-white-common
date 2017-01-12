@@ -3,3 +3,13 @@
 ## 컨텐츠
 - 강의 메모
 - 과제
+
+## 목차
+- Day2 : javascript
+- Day3 : javascript
+- Day4 : javascript
+- Day5 : Git
+- Day6 : javascript 2차원 배열, 오브젝트
+- Day7 : DOM
+- Day8 :
+- Homeworks : 1주차 과제, 다이아몬드 별 찍기.
