@@ -1,7 +1,7 @@
 // 미션 3-1.strawberry아래에 새로운 과일 pineapple 추가
 function addFruits() {
-    var node = document.createElement("li");
-    var textnode = document.createTextNode("pineapple");
+    var node = document.createElement("li"),
+        textnode = document.createTextNode("pineapple");
     node.appendChild(textnode);
     document.querySelectorAll('ul')[0].appendChild(node);
 }
