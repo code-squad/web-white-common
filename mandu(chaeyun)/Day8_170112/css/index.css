@@ -1,0 +1,49 @@
+body{
+  font-size : 18px;
+  text-align: center;
+  background-color: #e9ebee;
+}
+h1{
+  font-size : 3rem;
+}
+li{
+  text-align: left;
+}
+header h1{
+  background-color: #3b5998;
+  color : white;
+  width:400px;
+  margin : 0 auto;
+}
+.bg_white{
+  background: white;
+}
+.border{
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+}
+.div_margin {
+    width: 800px;
+    margin: 15px auto;
+}
+.red {
+  color : #FF2500;
+}
+.icon{
+
+}
+.profileImg{
+  height: 200px;
+  border: 1px solid rgba(0, 0, 0, .1);
+}
+.articleImg{
+  height: 400px;
+  border: 1px solid rgba(0, 0, 0, .1);
+}
+.text_margin{
+  margin : 25px 25px;
+}
+.photo_border{
+  border: 1px solid rgba(0, 0, 0, .1);
+}
