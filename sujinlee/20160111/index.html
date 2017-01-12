@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <style>
+      li{
+      list-style:none;
+      font-size:1.4em;
+      margin-bottom:10px;
+      }
+      .red{
+      color:#f00;
+      }
+      .blue{
+      color:#00f;
+      }
+      .green{
+      color:#0f0;
+      }
+    </style>
+  </head>
+  <script src="script.js"></script>
+  <body>
+    <div>
+      <div>
+       
+        <button onclick="addFruits()">미션 3-1.strawberry아래에 새로운 과일 pineapple 추가</button>
+        <button onclick="removeFruits()">미션 3-2. 과일 삭제</button>
+         <button onclick="insertFruits()">미션 4. banana와 orange사이에 새로운 과일추가</button>
+        <button onclick="changeFruits()">미션 5. apple 을 grape와 strawberry 사이로 옮김</button>
+        <button onclick="removeRed()">미션 6. class가 'red'인 노드만 삭제</button>
+        <button onclick="removeHeader()">미션 7. section 태그 자손 중에 blue라는 클래스가 있는 노드가 있으면, 하위 h2 노드 삭제</button>
+      </div>
+      <ul>
+        <li>apple</li>
+        <li>banana</li>
+        <li>orange</li>
+        <li>grape</li>
+        <li>strawberry</li>
+      </ul>
+      <ul>
+        <li>blue</li>
+        <li>white</li>
+        <li class="red">red</li>
+        <li>gray</li>
+        <li>black</li>
+        <li class="red">pink</li>
+      </ul>
+      <section>
+        <h2> red section </h2>
+        <ul>
+          <li class="red">apple</li>
+          <li class="red">orange</li>
+          <li>banana</li>
+          <li>grape</li>
+          <li>strawberry</li>
+        </ul>
+      </section>
+      <Br>
+      <section>
+        <h2> blue section </h2>
+        <ul>
+          <li class="green blue">apple</li>
+          <li class="red">orange</li>
+          <li>banana</li>
+          <li>grape</li>
+          <li>strawberry</li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
