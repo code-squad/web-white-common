@@ -13,3 +13,10 @@
 - Day7 : DOM
 - Day8 :
 - Homeworks : 1주차 과제, 다이아몬드 별 찍기.
+
+# 유용한 사이트
+- 자바스크립트 문제은행 : http://www.w3resource.com/javascript-exercises/
+- airBnb : https://github.com/CodeMakeBros/css-style-guide
+
+# 취업
+- https://brunch.co.kr/@imagineer/194
