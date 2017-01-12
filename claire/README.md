@@ -33,3 +33,9 @@
 
 - [DAY05] (https://github.com/claire0130/Front-End/tree/master/DAY05)
     - git
+
+- [DAY06](https://github.com/claire0130/Front-End/blob/master/DAY06)
+    - .forEach() VS .map() VS .filter()
+
+- [DAY07](https://github.com/claire0130/Front-End/tree/master/DAY07)
+    - DOM(Document Object Mode) API

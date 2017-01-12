@@ -1,4 +1,4 @@
-function makePyramid(lineNumber) {
+function makeDiamond(lineNumber) {
   var arr = [];
   var star = "*";
   var space = " ";
@@ -23,7 +23,7 @@ function makePyramid(lineNumber) {
     console.log(eachLine2);
   }
 }
-makePyramid(4);
+makeDiamond(4);
 /*
 makePyramid.js:17       *
 makePyramid.js:17     * * *
