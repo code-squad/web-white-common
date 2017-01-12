@@ -217,12 +217,28 @@ document Object에서부터 자식에 접근하면서, 원하는 엘리먼트에
 
 #### CSS Selector
 - \# : name 기반으로 선택 `document.querySelector("#songwriter")
+
 - . : class 기반으로 선택 `document.querySelector(".lyric")
+
 - , : 여러개의 셀렉터를 사용 `document.querySelectorAll("h1, h2")
+
 - [] : Attribute filter
+
 - > : child 대상으로 검색
+
+- [관련 아티클](http://m.mkexdev.net/107)
+
+- Crong 마스터님께서는 다른 API가 아닌, Selector를 우선적으로 사용하길 권장해주셨음
 
 ---
 
 2-5. [Element 추가/삭제](http://tryhelloworld.co.kr/courses/자바스크립트와-웹-프론트엔드/lessons/element-추가삭제)
 
+#### Document API
+- document.createElement() : 문자열 인자로 element tag를 입력하면 해당 엘리먼트가 생성돼 반환됨
+
+#### Element API
+- .appendChild(인자) : 추가할 element를 인자로 받아 호출된 element의 자식으로 인자를 추가함
+- .removeChild(인자) : 삭제할 element를 인자로 받아 호출된 element의 자식중에서 해당 element를 삭제
+- .insertBefore(인자1, 인자2) : 인자1로 받은 element를 호출된 element의 자식중 인자2의 이전에 추가함
+- .cloneNode() : 호출된 element를 복사해서 반환함
