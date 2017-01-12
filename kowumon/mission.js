@@ -28,8 +28,7 @@ ele.insertBefore(apple, getstra);
 var ele = document.querySelector("ul");
 var findclass = document.querySelectorAll("li.red"); 
 
-ele.removeChild(red[0]);
-ele.removeChild(red[1]);
+
 
 
 // 미션 7
