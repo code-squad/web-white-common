@@ -21,7 +21,7 @@ Documnets Object Model
 
 
 # 노드란 무엇일까?
-- <li>사과</li>
+- `<li>사과</li>`
 - li 가 부모 노드, 사과가 자식 노드.
 
 # DOM 탐색 API
