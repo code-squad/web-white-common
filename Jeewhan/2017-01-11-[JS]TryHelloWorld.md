@@ -242,3 +242,4 @@ document Object에서부터 자식에 접근하면서, 원하는 엘리먼트에
 - .removeChild(인자) : 삭제할 element를 인자로 받아 호출된 element의 자식중에서 해당 element를 삭제
 - .insertBefore(인자1, 인자2) : 인자1로 받은 element를 호출된 element의 자식중 인자2의 이전에 추가함
 - .cloneNode() : 호출된 element를 복사해서 반환함
+
