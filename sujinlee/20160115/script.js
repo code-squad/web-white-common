@@ -3,13 +3,14 @@ function addItem(newItem) {
     // <li>요소 확인
     const node = document.getElementsByTagName("ol")[0];
     const li = document.createElement("li");
+    var h3 = document.getElementsByTagName("h3")[0];
     var arr = [],
         elements = node.children;
     for (var i = 0; i < elements.length; i++){
         arr[i] = elements[i].textContent;
     }
 
-    // 목록에 중복 값 확인
+    // 목록 내 중복 값 확인
     if (arr.indexOf(newItem) !== -1 ) {
         msg = "이미 등록된 할일입니다.";
         return showMessage(msg);
@@ -23,6 +24,8 @@ function addItem(newItem) {
         }
         li.append(arr[arr.length - 1])
         node.appendChild(li);
+        h3.innerHTML = elements.length+" TASKS";
+        
         msg = "새로운 할일 '"+newItem+"' 을 추가했습니다.";
         return showMessage(msg);
     } 
@@ -32,7 +35,7 @@ function addItem(newItem) {
 //console.log(addItem('sujin'));
 function removeItem(num) {
     const node = document.getElementsByTagName("ol")[0];
-    
+    var h3 = document.getElementsByTagName("h3")[0];
     var elements = node.children;
     // 입력 값이 string일 경우
     if (num.match(/^[0-9]+$/) === null){
@@ -52,10 +55,9 @@ function removeItem(num) {
         // 목록이 없는 경우, 목록 없음 메시지 호출
         else if (elements.length <= 0){
             msg = "현재 할일이 없습니다. 새로운 할일을 추가하세요.";
+            h3.innerHTML = " 0 TASK";
             showMessage(msg);
         }
-
-
         // 0을 입력할 경우
         else if (num == 0) {
             msg = "1부터 입력하세요";
@@ -74,6 +76,7 @@ function removeItem(num) {
             // 할일 삭제 시, 메세지 호출
             else {
                 msg = " ' "+elements[num-1].textContent+"'할일이 삭제되었습니다."; 
+                h3.innerHTML = elements.length+" TASKS";
                 showMessage(msg);
             }
                 
