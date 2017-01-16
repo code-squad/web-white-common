@@ -32,7 +32,6 @@ function addItem(newItem) {
 }
 
 // -- 목록 삭제 -- //
-//console.log(addItem('sujin'));
 function removeItem(num) {
     const node = document.getElementsByTagName("ol")[0];
     var h3 = document.getElementsByTagName("h3")[0];
@@ -120,7 +119,6 @@ function executeItemNode(actionType, todoORNumber){
     }
     else {
         msg = "입력하세요."
-        console.log(msg);
         showMessage(msg);
     }
 }
