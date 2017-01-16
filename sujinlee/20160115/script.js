@@ -6,7 +6,8 @@ function addItem(newItem) {
     var h3 = document.getElementsByTagName("h3")[0];
     var arr = [],
         elements = node.children;
-    for (var i = 0; i < elements.length; i++){
+    var msg;
+    for (var i=0; i < elements.length; i++){
         arr[i] = elements[i].textContent;
     }
 
@@ -19,7 +20,7 @@ function addItem(newItem) {
         arr.push(newItem);
         // elements 개수 확인 후, string길이 오름차순 목록 정렬
         arr.sort(function(a, b){ return a.length - b.length; });
-        for (var i = 0; i < elements.length; i++){ 
+        for (var i=0; i < elements.length; i++){ 
             elements[i].innerHTML = arr[i];
         }
         li.append(arr[arr.length - 1])
@@ -36,6 +37,7 @@ function removeItem(num) {
     const node = document.getElementsByTagName("ol")[0];
     var h3 = document.getElementsByTagName("h3")[0];
     var elements = node.children;
+    var msg;
     // 입력 값이 string일 경우
     if (num.match(/^[0-9]+$/) === null){
         msg = "숫자를 입력하세요.";
@@ -86,11 +88,8 @@ function showMessage(text){
     p = document.createElement("p");
     p.innerHTML = text;
     node.appendChild(p);
-    setTimeout(function(){ 
-        p.style.display = "none";
-}, 2000);
+    setTimeout(function(){ p.style.display = "none"; }, 2000);
 }
-
 
 // -- 버튼 이벤트 -- //
 var controller = document.querySelector(".controller");
@@ -103,6 +102,7 @@ controller.addEventListener("click", function(evt) {
 });
 
 function executeItemNode(actionType, todoORNumber){
+    var msg;
     if (todoORNumber.length >= 1) {
         if (actionType === "add") {
             return addItem(todoORNumber);
