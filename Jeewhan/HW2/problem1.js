@@ -23,91 +23,38 @@ function executeItemNode(actionType, todoORnumber) {
 
   let message = $("div.message");
 
-  // ----------
-
   function makeElement(element) {
     return document.createElement(element);
   }
 
-  // ----------
+  let toDoList = [];
 
-  let sortedToDo = [];
-  let alreadyHaveToDo = [];
-
-  // ----------
-
-  function sortArrNumberAsc(arr) {
-    arr.sort(function(firstNumber, secondNumber) {
-      return firstNumber - secondNumber;
-    }
-    );
-  return arr;
+  for (let i = 0; i < $("section.basket > ol").children.length; i++) {
+    toDoList.push($("section.basket > ol").children[i].innerHTML);
   }
-
-  // ----------
-
-  function alreadyHaveList() {
-
-    if (arguments[0] !== undefined) {
-      alreadyHaveToDo.push(addTodo);
-    }
-
-    for (let i = 0; i < $("section.basket > ol").children.length; i++) {
-      alreadyHaveToDo.push($("section.basket > ol").children[i].innerHTML);
-    }
-    alreadyHaveToDo.sort();
-  }
-
-  // ----------
-
-  function lengthSort(todoORnumber) {
-
-    let arrForSort = [];
-    sortedToDo = [];
-
-    alreadyHaveToDo.push(todoORnumber)
-    alreadyHaveToDo.sort();
-
-    for (let i = 0; i < alreadyHaveToDo.length; i++) {
-      arrForSort.push(alreadyHaveToDo[i].length);
-    }
-
-    sortArrNumberAsc(arrForSort);
-
-    for (let i = 0; i < arrForSort.length; i++) {
-
-      for (let j = 0; j < alreadyHaveToDo.length; j++) {
-
-        if (arrForSort[i] === alreadyHaveToDo[j].length) {
-
-          sortedToDo.push(alreadyHaveToDo[j]);
-          alreadyHaveToDo.splice(j, 1);
-
-        }
-      }
-    }
-  }
-
-  // ----------
-
-  alreadyHaveList();
+  toDoList.sort();
 
   if (actionType === "add") {
-    if (alreadyHaveToDo.indexOf(todoORnumber) === -1) {
+    if (toDoList.indexOf(todoORnumber) === -1) {
 
-      lengthSort(todoORnumber);
+      toDoList.push(todoORnumber);
+      toDoList.sort();
+
+      toDoList.sort(function(firstElement, secondElement) {
+          return firstElement.length - secondElement.length;
+      });
 
       $("section.basket > ol").remove();
       $("section.basket").appendChild(makeElement("ol"));
 
-      for (let i = 0; i < sortedToDo.length; i++) {
+      for (let i = 0; i < toDoList.length; i++) {
 
         $("section.basket > ol").appendChild(makeElement("li"));
-        $("section.basket > ol").children[i].innerHTML = sortedToDo[i];
+        $("section.basket > ol").children[i].innerHTML = toDoList[i];
       }
 
     }
-    else if (alreadyHaveToDo.indexOf(todoORnumber) !== -1) {
+    else if (toDoList.indexOf(todoORnumber) !== -1) {
 
       message.appendChild(makeElement("p"));
       message.firstElementChild.innerHTML = '<span style="color: red">이미 있는 할 일입니다.</span>';
@@ -116,14 +63,14 @@ function executeItemNode(actionType, todoORnumber) {
     }
   }
   else if (actionType === "remove") {
-    if (alreadyHaveToDo[todoORnumber - 1] === undefined) {
+    if (toDoList[todoORnumber - 1] === undefined) {
 
       message.appendChild(makeElement("p"));
       message.firstElementChild.innerHTML = '<span style="color: red">삭제하려는 할 일이 없습니다.</span>';
       setTimeout(function() { message.removeChild(message.firstElementChild); }, 3000);
 
     }
-    else if (alreadyHaveToDo[todoORnumber - 1] !== undefined) {
+    else if (toDoList[todoORnumber - 1] !== undefined) {
       $("section.basket > ol").children[todoORnumber-1].remove();
     }
   }
@@ -157,3 +104,6 @@ controller.addEventListener("click", function(evt) {
   executeItemNode(actionType, inputValue);
 
 });
+
+
+// 갈아엎으면서 버리게 된 코드들
