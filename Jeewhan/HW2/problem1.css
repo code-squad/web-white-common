@@ -1,19 +1,21 @@
-li{
-  line-height: 1.5em;
-}
+/* li{ */
+/*   line-height: 1.5em; */
+/* } */
+/*  */
+/* .basket { */
+/*   margin-top: 40px; */
+/* } */
+/*  */
+/* .addWrap, .message { */
+/*   margin-bottom: 10px; */
+/* } */
+/*  */
+/* input { */
+/*   width : 150px; */
+/* } */
+/*  */
+/* .message { */
+/*   font-size: 0.9em; */
+/* } */
 
-.basket {
-  margin-top: 40px;
-}
-
-.addWrap, .message {
-  margin-bottom: 10px;
-}
-
-input {
-  width : 150px;
-}
-
-.message {
-  font-size: 0.9em;
-}
+* { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
