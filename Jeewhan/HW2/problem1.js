@@ -56,12 +56,12 @@ function executeItemNode(actionType, todoORnumber) {
 
     }
     else if (toDoList.indexOf(todoORnumber) !== -1) {
-      alertMessage("이미 있는 할 일입니다.")
+      alertMessage("이미 있는 할 일입니다.");
     }
   }
   else if (actionType === "remove") {
     if (toDoList[todoORnumber - 1] === undefined) {
-      alertMessage("삭제하려는 할 일이 없습니다.")
+      alertMessage("삭제하려는 할 일이 없습니다.");
     }
     else if (toDoList[todoORnumber - 1] !== undefined) {
       $("section.basket > ol").children[todoORnumber-1].remove();
