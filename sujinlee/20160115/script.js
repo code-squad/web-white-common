@@ -65,6 +65,7 @@ function removeItem(num) {
             node.removeChild(elements[num-1])
             // 마지막 아이템 삭제 시, 목록 없음 메시지 호출
             if (elements.length <= 0){
+                h3.innerHTML = " 0 TASK";
                 msg = "현재 할일이 없습니다. 새로운 할일을 추가하세요.";
                 showMessage(msg);
             }
@@ -73,12 +74,10 @@ function removeItem(num) {
                 msg = " ' "+elements[num-1].textContent+"'할일이 삭제되었습니다."; 
                 h3.innerHTML = elements.length+" TASKS";
                 showMessage(msg);
-            }
-                
+            }         
         }
     }
 }
-
 
 // -- 메시지 호출 -- //
 function showMessage(text){
