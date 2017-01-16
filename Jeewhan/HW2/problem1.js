@@ -23,8 +23,10 @@ function executeItemNode(actionType, todoORnumber) {
 
   let message = $("div.message");
 
-  function makeElement(element) {
-    return document.createElement(element);
+  function alertMessage(comment) {
+    message.appendChild(document.createElement("p"));
+    message.firstElementChild.innerHTML = '<span style="color: red">' + comment + '</span>';
+    setTimeout(function() { message.removeChild(message.firstElementChild); }, 3000);
   }
 
   let toDoList = [];
@@ -45,30 +47,21 @@ function executeItemNode(actionType, todoORnumber) {
       });
 
       $("section.basket > ol").remove();
-      $("section.basket").appendChild(makeElement("ol"));
+      $("section.basket").appendChild(document.createElement("ol"));
 
       for (let i = 0; i < toDoList.length; i++) {
-
-        $("section.basket > ol").appendChild(makeElement("li"));
+        $("section.basket > ol").appendChild(document.createElement("li"));
         $("section.basket > ol").children[i].innerHTML = toDoList[i];
       }
 
     }
     else if (toDoList.indexOf(todoORnumber) !== -1) {
-
-      message.appendChild(makeElement("p"));
-      message.firstElementChild.innerHTML = '<span style="color: red">이미 있는 할 일입니다.</span>';
-      setTimeout(function() { message.removeChild(message.firstElementChild); }, 3000);
-
+      alertMessage("이미 있는 할 일입니다.")
     }
   }
   else if (actionType === "remove") {
     if (toDoList[todoORnumber - 1] === undefined) {
-
-      message.appendChild(makeElement("p"));
-      message.firstElementChild.innerHTML = '<span style="color: red">삭제하려는 할 일이 없습니다.</span>';
-      setTimeout(function() { message.removeChild(message.firstElementChild); }, 3000);
-
+      alertMessage("삭제하려는 할 일이 없습니다.")
     }
     else if (toDoList[todoORnumber - 1] !== undefined) {
       $("section.basket > ol").children[todoORnumber-1].remove();
@@ -104,6 +97,3 @@ controller.addEventListener("click", function(evt) {
   executeItemNode(actionType, inputValue);
 
 });
-
-
-// 갈아엎으면서 버리게 된 코드들
