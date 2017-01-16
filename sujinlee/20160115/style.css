@@ -1,15 +1,22 @@
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-h1 {
-    font-size: 4rem;
-    font-weight: 200;
-    margin-left: 3rem;
-}
 body {
     font-family: 'Spoqa Han Sans', 'Sans-serif';
     color: #475B65;
     font-weight: 200;
     background: #F5F5F5;
 }
+
+h1 {
+    font-size: 4rem;
+    font-weight: 200;
+    margin-left: 3rem;
+}
+
+h1:before{
+    font-size: 4rem;
+    font-weight: 400;
+    content: "#";
+}
+
 h3 {
     color: #FD636B;
     font-weight: 200;
@@ -37,7 +44,7 @@ h3:before {
 }
 .basket li {
     padding: 0.5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 .controller {
     padding: 6rem 3rem;
@@ -57,7 +64,7 @@ h3:before {
 input {
     font-weight: 200;
     color: #D6D4D5;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     outline: none;
     box-shadow: none;
     -webkit-appearance: none;
@@ -86,18 +93,7 @@ input {
     color: #D6D4D5;
     font-weight: 200;
 }
-::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-}
-::-moz-placeholder {
-    /* Firefox 19+ */
-}
-:-ms-input-placeholder {
-    /* IE 10+ */
-}
-:-moz-placeholder {
-    /* Firefox 18- */
-}
+
 input:focus {
     font-weight: 200;
     color: #475B65;

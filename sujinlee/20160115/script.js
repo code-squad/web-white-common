@@ -43,8 +43,6 @@ function removeItem(num) {
     }
     // 입력 값이 숫자일 경우 : typeof(num) = string
     else {
-        var li = document.getElementsByTagName("li")
-
         // 목록 숫자보다 큰 숫자를 입력할 경우, 번호 없음 메시지 호출
         if(elements.length >= 1 && num >= elements.length+1) {
             msg = "목록에 없는 번호입니다.";
@@ -65,13 +63,11 @@ function removeItem(num) {
         // 목록 숫자보다 작은 숫자를 입력할 경우 아이템 삭제
         else {  
             node.removeChild(elements[num-1])
-            
             // 마지막 아이템 삭제 시, 목록 없음 메시지 호출
             if (elements.length <= 0){
                 msg = "현재 할일이 없습니다. 새로운 할일을 추가하세요.";
                 showMessage(msg);
             }
-
             // 할일 삭제 시, 메세지 호출
             else {
                 msg = " ' "+elements[num-1].textContent+"'할일이 삭제되었습니다."; 
@@ -106,7 +102,6 @@ controller.addEventListener("click", function(evt) {
   var actionType = btn.className;
   executeItemNode(actionType, inputValue);
 });
-
 
 function executeItemNode(actionType, todoORNumber){
     if (todoORNumber.length >= 1) {
