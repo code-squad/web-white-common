@@ -53,7 +53,7 @@ function executeItemNode(actionType, todoORnumber) {
           return firstElement.length - secondElement.length;
       });
 
-      sectionBasket().remove();
+      sectionBasketOl().remove();
       $("section.basket").appendChild(document.createElement("ol"));
 
       for (let i = 0; i < toDoList.length; i++) {
