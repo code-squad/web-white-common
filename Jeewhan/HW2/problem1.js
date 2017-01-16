@@ -13,8 +13,8 @@
  * 3. 아래 event 관련 코드를 학습해보고, 어떤 코드를 의미하는지 최대한 자세히 주석으로 설명을 넣어보세요.
  */
 
-// 이미 있는 할 일 목록을 Array에 할당하여 초기화
 
+// 이미 있는 할 일 목록을 Array에 할당하여 초기화
 function executeItemNode(actionType, todoORnumber) {
 
   function $(element) {
@@ -30,6 +30,7 @@ function executeItemNode(actionType, todoORnumber) {
     setTimeout(function() { message.removeChild(message.firstElementChild); }, 3000);
   }
 
+  // 읽는 이를 생각하여 일부러 변수를 한 번에 선언하지 않고 사용하기 전에 선언 및 초기화
   let toDoList = [];
 
   // 이미 있는 작업을 배열에 할당
