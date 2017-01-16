@@ -23,6 +23,10 @@ function executeItemNode(actionType, todoORnumber) {
 
   let message = $("div.message");
 
+  function sectionBasketOl(element) {
+    return $("section.basket > ol");
+  }
+
   // 에러메시지를 보여주는 함수
   function alertMessage(comment) {
     message.appendChild(document.createElement("p"));
@@ -34,8 +38,8 @@ function executeItemNode(actionType, todoORnumber) {
   let toDoList = [];
 
   // 이미 있는 작업을 배열에 할당
-  for (let i = 0; i < $("section.basket > ol").children.length; i++) {
-    toDoList.push($("section.basket > ol").children[i].innerHTML);
+  for (let i = 0; i < sectionBasketOl().children.length; i++) {
+    toDoList.push(sectionBasketOl().children[i].innerHTML);
   }
   toDoList.sort(); // 가나다 정렬
 
@@ -49,12 +53,12 @@ function executeItemNode(actionType, todoORnumber) {
           return firstElement.length - secondElement.length;
       });
 
-      $("section.basket > ol").remove();
+      sectionBasket().remove();
       $("section.basket").appendChild(document.createElement("ol"));
 
       for (let i = 0; i < toDoList.length; i++) {
-        $("section.basket > ol").appendChild(document.createElement("li"));
-        $("section.basket > ol").children[i].innerHTML = toDoList[i];
+        sectionBasketOl().appendChild(document.createElement("li"));
+        sectionBasketOl().children[i].innerHTML = toDoList[i];
       }
 
     }
@@ -67,7 +71,7 @@ function executeItemNode(actionType, todoORnumber) {
       alertMessage("삭제하려는 할 일이 없습니다.");
     }
     else if (toDoList[todoORnumber - 1] !== undefined) { // !와 같은 방식은 읽을 때 한 번 더 생각해야 하므로 사용하지 않음
-      $("section.basket > ol").children[todoORnumber-1].remove();
+      sectionBasketOl().children[todoORnumber-1].remove();
     }
   }
 }
@@ -126,6 +130,4 @@ controller.addEventListener("click", function(evt) {
 // 2. if의 분기마다 한 번에 하나의 조건별로 분기를 하는 것이 독자 입장에서 더 좋다고 생각합니다.
 //    T & T 또는 T & F 처럼 적게 되면, IF 안 IF를 없앨 수는 있겠지만, 한 번에 고려해야 하는 조건이 많아져서 나쁘다고 생각합니다.
 
-// 3. $("section.basket > ol")은 변수로 담아서 사용하고 싶었지만, Call By Value가 되어버려서 결과가 잘못 나오게 되는 바람에 하지 못 했습니다.
-
-// 4. 화면에 제대로 들어갑니다 :D
+// 3. 화면에 제대로 들어갑니다 :D
