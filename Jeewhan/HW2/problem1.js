@@ -23,6 +23,7 @@ function executeItemNode(actionType, todoORnumber) {
 
   let message = $("div.message");
 
+  // 피드백 반영
   function sectionBasketOl(element) {
     return $("section.basket > ol");
   }
@@ -130,4 +131,6 @@ controller.addEventListener("click", function(evt) {
 // 2. if의 분기마다 한 번에 하나의 조건별로 분기를 하는 것이 독자 입장에서 더 좋다고 생각합니다.
 //    T & T 또는 T & F 처럼 적게 되면, IF 안 IF를 없앨 수는 있겠지만, 한 번에 고려해야 하는 조건이 많아져서 나쁘다고 생각합니다.
 
-// 3. 화면에 제대로 들어갑니다 :D
+// 3. $("section.basket > ol") 는 원래 Call By Value 때문에 안 되는 줄 알았지만 return을 해주도록 해서 반영하였습니다!
+
+// 4. 화면에 제대로 들어갑니다 :D
