@@ -11,12 +11,13 @@
 - Day5 : Git
 - Day6 : javascript 2차원 배열, 오브젝트
 - Day7 : DOM
-- Day8 :
+- Day8 : CSS
 - Homeworks : 1주차 과제, 다이아몬드 별 찍기.
 
 # 유용한 사이트
 - 자바스크립트 문제은행 : http://www.w3resource.com/javascript-exercises/
 - airBnb : https://github.com/CodeMakeBros/css-style-guide
+- CSS 레이아웃 : http://ko.learnlayout.com/position.html
 
 # 취업
 - https://brunch.co.kr/@imagineer/194
