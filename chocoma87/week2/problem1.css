@@ -1,0 +1,19 @@
+li{
+  line-height:1.5em;
+}
+
+.basket {
+  margin-top: 40px;
+}
+
+.addWrap, .message {
+  margin-bottom:10px;
+}
+
+input {
+  width : 100px;
+}
+
+.message {
+  font-size:0.9em;
+}
