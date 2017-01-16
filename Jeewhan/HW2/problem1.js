@@ -23,6 +23,7 @@ function executeItemNode(actionType, todoORnumber) {
 
   let message = $("div.message");
 
+  // 에러메시지를 보여주는 함수
   function alertMessage(comment) {
     message.appendChild(document.createElement("p"));
     message.firstElementChild.innerHTML = '<span style="color: red">' + comment + '</span>';
@@ -31,16 +32,17 @@ function executeItemNode(actionType, todoORnumber) {
 
   let toDoList = [];
 
+  // 이미 있는 작업을 배열에 할당
   for (let i = 0; i < $("section.basket > ol").children.length; i++) {
     toDoList.push($("section.basket > ol").children[i].innerHTML);
   }
-  toDoList.sort();
+  toDoList.sort(); // 가나다 정렬
 
   if (actionType === "add") {
     if (toDoList.indexOf(todoORnumber) === -1) {
 
       toDoList.push(todoORnumber);
-      toDoList.sort();
+      toDoList.sort(); // 같은 길이어도 가나다 순으로 보여지길 원함
 
       toDoList.sort(function(firstElement, secondElement) {
           return firstElement.length - secondElement.length;
@@ -55,7 +57,7 @@ function executeItemNode(actionType, todoORnumber) {
       }
 
     }
-    else if (toDoList.indexOf(todoORnumber) !== -1) {
+    else if (toDoList.indexOf(todoORnumber) !== -1) { // 해당 줄 자체로 분기 조건을 명확히 보여주기 위해서 else가 아닌 else if 선호
       alertMessage("이미 있는 할 일입니다.");
     }
   }
@@ -63,7 +65,7 @@ function executeItemNode(actionType, todoORnumber) {
     if (toDoList[todoORnumber - 1] === undefined) {
       alertMessage("삭제하려는 할 일이 없습니다.");
     }
-    else if (toDoList[todoORnumber - 1] !== undefined) {
+    else if (toDoList[todoORnumber - 1] !== undefined) { // !와 같은 방식은 읽을 때 한 번 더 생각해야 하므로 사용하지 않음
       $("section.basket > ol").children[todoORnumber-1].remove();
     }
   }
