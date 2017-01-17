@@ -7,84 +7,74 @@
  * 삭제하려는 경우 num과 일치하는 item번호가 없다면 'message' 영역에서 적당한 메시지를 붉은색으로 표시됐다 3초뒤 사라집니다.
  * 함수를 여러개로 나눠도 상관없습니다.
  * 참고로 1번을 풀기 위해서는 string조작과 setTimeout이라는 것을 공부해야 할 수도 있습니다.
- *
- * 2. 좀더 사용하기 쉬운 웹화면이 되도록, css에 다양한 스타일을 적용하면서 꾸며봅니다.
- *
- * 3. 아래 event 관련 코드를 학습해보고, 어떤 코드를 의미하는지 최대한 자세히 주석으로 설명을 넣어보세요.
  */
 
-// 이미 있는 할 일 목록을 Array에 할당하여 초기화
-
 function executeItemNode(actionType, todoORnumber) {
+
+  const ERROR_MSG = {
+    "add" : {
+      "EXIST_TODO" : "이미 등록한 일입니다."
+    },
+    "remove" : {
+      "NON_EXIST_TODO" : "삭제하려는 할 일이 없습니다."
+    },
+  };
 
   function $(element) {
     return document.querySelector(element);
   }
 
+  function alertMessage(target, comment) {
+    target.insertAdjacentHTML("afterbegin", "<p>" + comment + "</p>");
+    setTimeout(function() { target.removeChild(target.firstElementChild); }, 3000);
+  }
+
+  function pushToDo(toDo) {
+    toDoList.push(toDo);
+    toDoList.sort();
+
+    toDoList.sort(function(firstElement, secondElement) {
+        return firstElement.length - secondElement.length;
+    });
+
+    sectionBasketOl().remove();
+    $("section.basket").appendChild(document.createElement("ol"));
+
+    for (let i = 0; i < toDoList.length; i++) {
+      sectionBasketOl().insertAdjacentHTML("beforeend", "<li>" + toDoList[i] + "</li>");
+    }
+  }
+
   let message = $("div.message");
 
-  function alertMessage(comment) {
-    message.appendChild(document.createElement("p"));
-    message.firstElementChild.innerHTML = '<span style="color: red">' + comment + '</span>';
-    setTimeout(function() { message.removeChild(message.firstElementChild); }, 3000);
+  // --------------------
+
+  if (actionType === "add" && toDoList.indexOf(todoORnumber) === -1) {
+    pushToDo(todoORnumber);
   }
-
-  let toDoList = [];
-
-  for (let i = 0; i < $("section.basket > ol").children.length; i++) {
-    toDoList.push($("section.basket > ol").children[i].innerHTML);
+  else if (actionType === "add" && toDoList.indexOf(todoORnumber) !== -1) {
+    alertMessage(message, ERROR_MSG[actionType].EXIST_TODO);
   }
-  toDoList.sort();
-
-  if (actionType === "add") {
-    if (toDoList.indexOf(todoORnumber) === -1) {
-
-      toDoList.push(todoORnumber);
-      toDoList.sort();
-
-      toDoList.sort(function(firstElement, secondElement) {
-          return firstElement.length - secondElement.length;
-      });
-
-      $("section.basket > ol").remove();
-      $("section.basket").appendChild(document.createElement("ol"));
-
-      for (let i = 0; i < toDoList.length; i++) {
-        $("section.basket > ol").appendChild(document.createElement("li"));
-        $("section.basket > ol").children[i].innerHTML = toDoList[i];
-      }
-
-    }
-    else if (toDoList.indexOf(todoORnumber) !== -1) {
-      alertMessage("이미 있는 할 일입니다.");
-    }
+  else if (actionType === "remove" && toDoList[todoORnumber - 1] === undefined) {
+    alertMessage(message, ERROR_MSG[actionType].NON_EXIST_TODO);
   }
-  else if (actionType === "remove") {
-    if (toDoList[todoORnumber - 1] === undefined) {
-      alertMessage("삭제하려는 할 일이 없습니다.");
-    }
-    else if (toDoList[todoORnumber - 1] !== undefined) {
-      $("section.basket > ol").children[todoORnumber-1].remove();
-    }
+  else if (actionType === "remove" && toDoList[todoORnumber - 1] !== undefined) {
+    sectionBasketOl().children[todoORnumber-1].remove();
   }
 }
 
-/*
- * 3번문제는 여기에 자세히 설명을 넣으시면 됩니다.
 
- * querySelector 축약
+var sectionBasketOl = function(element) {
+  return document.querySelector("section.basket > ol");
+};
 
- * element의 addEventListener(event, function) method를 호출해, eventHandler 등록
+var toDoList = [];
 
- * click 이벤트 발생시 target이
- * 버튼이 아닐 때는 return을 통해 Pass
+for (let i = 0; i < sectionBasketOl().children.length; i++) {
+  toDoList.push(sectionBasketOl().children[i].innerHTML);
+}
+toDoList.sort();
 
- * button이 맞을 때는
- * button 태그 이전에 있는 Input Tag의 값을 inputValue에 할당
- * button의 클래스명은 actionType에 할당
- * 두 변수를 executeItemNode의 Parameter로 넘겨서 호출
-
- */
 
 var controller = document.querySelector(".controller");
 
@@ -95,3 +85,14 @@ controller.addEventListener("click", function(evt) {
   var actionType = btn.className;
   executeItemNode(actionType, inputValue);
 });
+
+// 개선해야 할 점 : 전체를 다시 구현하지 않고, 추가해야 할 지점만 찾아서 넣어주기
+
+const actionObj = {
+  "add" : function() {
+    // do something
+  },
+  "remove" : function() {
+    // do something
+  },
+};

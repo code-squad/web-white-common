@@ -1,1 +1,7 @@
+@import url(https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
 * { font-family: 'Spoqa Han Sans', 'Sans-serif'; }
+
+.message {
+  color : red;
+}
