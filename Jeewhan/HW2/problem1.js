@@ -28,11 +28,11 @@ function executeItemNode(actionType, todoORnumber) {
     return $("section.basket > ol");
   }
 
-  // 에러메시지를 보여주는 함수
-  function alertMessage(comment) {
-    message.appendChild(document.createElement("p"));
-    message.firstElementChild.innerHTML = '<span style="color: red">' + comment + '</span>';
-    setTimeout(function() { message.removeChild(message.firstElementChild); }, 3000);
+  // 에러메시지를 보여주는 함수, 다른 분에 대한 피드백을 반영하여 범용성을 위해서 매개변수를 하나 더 추가
+  function alertMessage(target, comment) {
+    target.appendChild(document.createElement("p"));
+    target.firstElementChild.innerHTML = '<span style="color: red">' + comment + '</span>';
+    setTimeout(function() { target.removeChild(target.firstElementChild); }, 3000);
   }
 
   // 변수를 한 번에 선언하지 않고 사용하기 전에 선언 및 초기화
@@ -64,12 +64,12 @@ function executeItemNode(actionType, todoORnumber) {
 
     }
     else if (toDoList.indexOf(todoORnumber) !== -1) { // 해당 줄 자체로 분기 조건을 명확히 보여주기 위해서 else가 아닌 else if 선호
-      alertMessage("이미 있는 할 일입니다.");
+      alertMessage(message, "이미 있는 할 일입니다.");
     }
   }
   else if (actionType === "remove") {
     if (toDoList[todoORnumber - 1] === undefined) {
-      alertMessage("삭제하려는 할 일이 없습니다.");
+      alertMessage(message, "삭제하려는 할 일이 없습니다.");
     }
     else if (toDoList[todoORnumber - 1] !== undefined) { // !와 같은 방식은 읽을 때 한 번 더 생각해야 하므로 사용하지 않음
       sectionBasketOl().children[todoORnumber-1].remove();
