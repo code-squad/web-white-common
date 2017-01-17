@@ -31,8 +31,7 @@ function executeItemNode(actionType, todoORnumber) {
 
   // 에러메시지를 보여주는 함수, 다른 분에 대한 피드백을 반영하여 범용성을 위해서 매개변수를 하나 더 추가
   function alertMessage(target, comment) {
-    target.appendChild(makeNode("p"));
-    target.firstElementChild.innerHTML = comment;
+    target.insertAdjacentHTML("afterbegin", "<p>" + comment + "</p>");
     setTimeout(function() { target.removeChild(target.firstElementChild); }, 3000);
   }
 
@@ -48,8 +47,9 @@ function executeItemNode(actionType, todoORnumber) {
     $("section.basket").appendChild(makeNode("ol"));
 
     for (let i = 0; i < toDoList.length; i++) {
-      sectionBasketOl().appendChild(makeNode("li"));
-      sectionBasketOl().children[i].innerHTML = toDoList[i];
+      sectionBasketOl().insertAdjacentHTML("beforeend", "<li>" + toDoList[i] + "</li>");
+      // sectionBasketOl().appendChild(makeNode("li"));
+      // sectionBasketOl().children[i].innerHTML = toDoList[i];
     }
   }
 
