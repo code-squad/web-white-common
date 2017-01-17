@@ -17,12 +17,12 @@ function executeItemNode(actionType, todoORnumber) {
 
   // 크롱의 객체지향 예시안
   const ERROR_MSG = {
-	"add" : {
-	  "EXIST_TODO" : "이미 등록한 일입니다."
-	},
-	"remove" : {
-	  "NON_EXIST_TODO" : "삭제하려는 할 일이 없습니다."
-	},
+    "add" : {
+      "EXIST_TODO" : "이미 등록한 일입니다."
+    },
+    "remove" : {
+      "NON_EXIST_TODO" : "삭제하려는 할 일이 없습니다."
+    },
   };
 
   function $(element) {
