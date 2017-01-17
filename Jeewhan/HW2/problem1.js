@@ -35,7 +35,7 @@ function executeItemNode(actionType, todoORnumber) {
     setTimeout(function() { message.removeChild(message.firstElementChild); }, 3000);
   }
 
-  // 읽는 이를 생각하여 일부러 변수를 한 번에 선언하지 않고 사용하기 전에 선언 및 초기화
+  // 변수를 한 번에 선언하지 않고 사용하기 전에 선언 및 초기화
   let toDoList = [];
 
   // 이미 있는 작업을 배열에 할당
@@ -105,7 +105,6 @@ controller.addEventListener("click", function(evt) {
   executeItemNode(actionType, inputValue);
 });
 
-
 // 73행까지의 코드에 대한 피드백
 
 /* executeItemNode 로 감싸서 전역변수를 없앴지만,
@@ -114,7 +113,6 @@ controller.addEventListener("click", function(evt) {
 * $("section.basket > ol") 이게 반복적으로 사용하는데, 변수에 담아두고 재사용하는게 더 빠릅니다.
 * for 문안에  $("section.basket > ol").children.length 이렇게 있으니 좀 보기 어렵네요. 변수로 받아두고 쓰셔도 좋겠고요.
 * $("section.basket > ol").children[i].innerHTML = toDoList[i]; 이거 제대로 화면에 들어가나요?
-
 */
 
 // 1. 한 번 정도 호출될 함수일 경우, 함수명에 프로세스와 리턴벨류를 아주 잘 담아낼 수 없다면,
@@ -122,7 +120,7 @@ controller.addEventListener("click", function(evt) {
 //    (함수명만으로 확 와닿지 않는다면 번거롭게 함수 선언 부분을 계속 찾아가야 하는 상황이 생길 수 있으므로)
 
 // 2. IF의 분기마다 한 번에 하나의 조건별로 분기를 하는 것이 독자 입장에서 더 좋다고 생각합니다.
-//    True & True 또는 True & False 처럼 적게 되면, IF안 IF를 없앨 수는 있겠지만, 한 번에 고려해야 하는 조건이 많아져서 나쁘다고 생각합니다.
+//    True & True 또는 True & False 처럼 적게 되면, IF안 IF를 없앨 수는 있겠지만, 동시에 고려해야 하는 여러 개가 되어서 나쁘다고 생각합니다.
 
 // 3. $("section.basket > ol") 는 원래 Call By Value 때문에 안 되는 줄 알았지만 return을 해주도록 해서 반영하였습니다!
 
