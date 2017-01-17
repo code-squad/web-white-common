@@ -14,7 +14,7 @@ function addItem(newItem) {
     // 목록 내 중복 값 확인
     if (arr.indexOf(newItem) !== -1 ) {
         msg = "이미 등록된 할일입니다.";
-        return showMessage(msg);
+        showMessage(msg);
     }
     else{
         arr.push(newItem);
@@ -28,7 +28,7 @@ function addItem(newItem) {
         h3.innerHTML = elements.length+" TASKS";
         
         msg = "새로운 할일 '"+newItem+"' 을 추가했습니다.";
-        return showMessage(msg);
+        showMessage(msg);
     } 
 }
 
@@ -105,10 +105,10 @@ function executeItemNode(actionType, todoORNumber){
     var msg;
     if (todoORNumber.length >= 1) {
         if (actionType === "add") {
-            return addItem(todoORNumber);
+            addItem(todoORNumber);
         }
         if (actionType === "remove") {
-            return removeItem(todoORNumber);
+            removeItem(todoORNumber);
         }
     }
     else {
