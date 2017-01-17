@@ -7,10 +7,6 @@
  * 삭제하려는 경우 num과 일치하는 item번호가 없다면 'message' 영역에서 적당한 메시지를 붉은색으로 표시됐다 3초뒤 사라집니다.
  * 함수를 여러개로 나눠도 상관없습니다.
  * 참고로 1번을 풀기 위해서는 string조작과 setTimeout이라는 것을 공부해야 할 수도 있습니다.
- *
- * 2. 좀더 사용하기 쉬운 웹화면이 되도록, css에 다양한 스타일을 적용하면서 꾸며봅니다.
- *
- * 3. 아래 event 관련 코드를 학습해보고, 어떤 코드를 의미하는지 최대한 자세히 주석으로 설명을 넣어보세요.
  */
 
 function executeItemNode(actionType, todoORnumber) {
@@ -75,23 +71,6 @@ function executeItemNode(actionType, todoORnumber) {
   }
 }
 
-/*
- * 3번문제는 여기에 자세히 설명을 넣으시면 됩니다.
-
- // querySelector 축약
-
- // element의 addEventListener(event, function) method를 호출해, eventHandler 등록
-
- // click 이벤트 발생시 target이
- // 버튼이 아닐 때는 return을 통해 Pass
-
- // button이 맞을 때는
- // button 태그 이전에 있는 Input Tag의 값을 inputValue에 할당
- // button의 클래스명은 actionType에 할당
- // 두 변수를 executeItemNode의 Parameter로 넘겨서 호출
-
- */
-
 var sectionBasketOl = function(element) {
   return document.querySelector("section.basket > ol");
 };
@@ -104,7 +83,6 @@ for (let i = 0; i < sectionBasketOl().children.length; i++) {
 }
 toDoList.sort(); // 가나다 정렬
 
-// 아래부터는 모두 문제 조건에 제시된 코드
 var controller = document.querySelector(".controller");
 
 controller.addEventListener("click", function(evt) {
@@ -115,19 +93,7 @@ controller.addEventListener("click", function(evt) {
   executeItemNode(actionType, inputValue);
 });
 
-// 73행까지의 코드에 대한 피드백
-
-/*
-* executeItemNode 로 감싸서 전역변수를 없앴지만,
-* executeItemNode 에 너무 많은 로직이 다 들어가 있네요. 그 안에서도 함수를 나눠서 만들고 호출하세요.
-* if문 안에 if를 없애보려고 노력하세요.
-* $("section.basket > ol") 이게 반복적으로 사용하는데, 변수에 담아두고 재사용하는게 더 빠릅니다.
-* for 문안에  $("section.basket > ol").children.length 이렇게 있으니 좀 보기 어렵네요. 변수로 받아두고 쓰셔도 좋겠고요.
-* $("section.basket > ol").children[i].innerHTML = toDoList[i]; 이거 제대로 화면에 들어가나요?
-*/
-
 // 개선해야 할 점 : insertAdjacentHTML() / 전체를 다시 구현하지 않고, 추가해야 할 지점만 찾아서 넣어주기
-
 
 const actionObj = {
   "add" : function() {
