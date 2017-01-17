@@ -13,15 +13,11 @@
  * 3. 아래 event 관련 코드를 학습해보고, 어떤 코드를 의미하는지 최대한 자세히 주석으로 설명을 넣어보세요.
  */
 
-
-// 이미 있는 할 일 목록을 Array에 할당하여 초기화
 function executeItemNode(actionType, todoORnumber) {
 
   function $(element) {
     return document.querySelector(element);
   }
-
-  let message = $("div.message");
 
   // 피드백 반영
   function sectionBasketOl(element) {
@@ -34,8 +30,6 @@ function executeItemNode(actionType, todoORnumber) {
     target.firstElementChild.innerHTML = '<span style="color: red">' + comment + '</span>';
     setTimeout(function() { target.removeChild(target.firstElementChild); }, 3000);
   }
-
-  let toDoList = [];
 
   function pushToDo(toDo) {
     toDoList.push(toDo);
@@ -53,6 +47,9 @@ function executeItemNode(actionType, todoORnumber) {
       sectionBasketOl().children[i].innerHTML = toDoList[i];
     }
   }
+
+  let message = $("div.message");
+  let toDoList = [];
 
   // --------------------
 
