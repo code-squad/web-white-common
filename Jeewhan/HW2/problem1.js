@@ -44,36 +44,30 @@ function executeItemNode(actionType, todoORnumber) {
   }
   toDoList.sort(); // 가나다 정렬
 
-  if (actionType === "add") {
-    if (toDoList.indexOf(todoORnumber) === -1) {
+  if (actionType === "add" && toDoList.indexOf(todoORnumber) === -1) {
+    toDoList.push(todoORnumber);
+    toDoList.sort(); // 같은 길이어도 가나다 순으로 보여지길 원함
 
-      toDoList.push(todoORnumber);
-      toDoList.sort(); // 같은 길이어도 가나다 순으로 보여지길 원함
+    toDoList.sort(function(firstElement, secondElement) {
+        return firstElement.length - secondElement.length;
+    });
 
-      toDoList.sort(function(firstElement, secondElement) {
-          return firstElement.length - secondElement.length;
-      });
+    sectionBasketOl().remove();
+    $("section.basket").appendChild(document.createElement("ol"));
 
-      sectionBasketOl().remove();
-      $("section.basket").appendChild(document.createElement("ol"));
-
-      for (let i = 0; i < toDoList.length; i++) {
-        sectionBasketOl().appendChild(document.createElement("li"));
-        sectionBasketOl().children[i].innerHTML = toDoList[i];
-      }
-
-    }
-    else if (toDoList.indexOf(todoORnumber) !== -1) { // 해당 줄 자체로 분기 조건을 명확히 보여주기 위해서 else가 아닌 else if 선호
-      alertMessage(message, "이미 있는 할 일입니다.");
+    for (let i = 0; i < toDoList.length; i++) {
+      sectionBasketOl().appendChild(document.createElement("li"));
+      sectionBasketOl().children[i].innerHTML = toDoList[i];
     }
   }
-  else if (actionType === "remove") {
-    if (toDoList[todoORnumber - 1] === undefined) {
-      alertMessage(message, "삭제하려는 할 일이 없습니다.");
-    }
-    else if (toDoList[todoORnumber - 1] !== undefined) { // !와 같은 방식은 읽을 때 한 번 더 생각해야 하므로 사용하지 않음
-      sectionBasketOl().children[todoORnumber-1].remove();
-    }
+  else if (actionType === "add" && toDoList.indexOf(todoORnumber) !== -1) {
+      alertMessage(message, "이미 있는 할 일입니다.");
+  }
+  else if (actionType === "remove" && toDoList[todoORnumber - 1] === undefined) {
+    alertMessage(message, "삭제하려는 할 일이 없습니다.");
+  }
+  else if (actionType === "remove" && toDoList[todoORnumber - 1] !== undefined) {
+    sectionBasketOl().children[todoORnumber-1].remove();
   }
 }
 
