@@ -125,3 +125,5 @@ controller.addEventListener("click", function(evt) {
 // 3. $("section.basket > ol") 는 원래 Call By Value 때문에 안 되는 줄 알았지만 return을 해주도록 해서 반영하였습니다!
 
 // 4. 화면에 제대로 들어갑니다 :D
+
+// 5. 개선해야 할 점 : insertAdjacentHTML() / 전체를 다시 구현하지 않고, 추가해야 할 지점만 찾아서 넣어주기
