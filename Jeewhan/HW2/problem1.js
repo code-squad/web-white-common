@@ -35,17 +35,8 @@ function executeItemNode(actionType, todoORnumber) {
     setTimeout(function() { target.removeChild(target.firstElementChild); }, 3000);
   }
 
-  // 변수를 한 번에 선언하지 않고 사용하기 전에 선언 및 초기화
-  let toDoList = [];
-
-  // 이미 있는 작업을 배열에 할당
-  for (let i = 0; i < sectionBasketOl().children.length; i++) {
-    toDoList.push(sectionBasketOl().children[i].innerHTML);
-  }
-  toDoList.sort(); // 가나다 정렬
-
-  if (actionType === "add" && toDoList.indexOf(todoORnumber) === -1) {
-    toDoList.push(todoORnumber);
+  function pushToDo(toDo) {
+    toDoList.push(toDo);
     toDoList.sort(); // 같은 길이어도 가나다 순으로 보여지길 원함
 
     toDoList.sort(function(firstElement, secondElement) {
@@ -60,8 +51,21 @@ function executeItemNode(actionType, todoORnumber) {
       sectionBasketOl().children[i].innerHTML = toDoList[i];
     }
   }
+
+  // 변수를 한 번에 선언하지 않고 사용하기 전에 선언 및 초기화
+  let toDoList = [];
+
+  // 이미 있는 작업을 배열에 할당
+  for (let i = 0; i < sectionBasketOl().children.length; i++) {
+    toDoList.push(sectionBasketOl().children[i].innerHTML);
+  }
+  toDoList.sort(); // 가나다 정렬
+
+  if (actionType === "add" && toDoList.indexOf(todoORnumber) === -1) {
+    pushToDo(todoORnumber);
+  }
   else if (actionType === "add" && toDoList.indexOf(todoORnumber) !== -1) {
-      alertMessage(message, "이미 있는 할 일입니다.");
+    alertMessage(message, "이미 있는 할 일입니다.");
   }
   else if (actionType === "remove" && toDoList[todoORnumber - 1] === undefined) {
     alertMessage(message, "삭제하려는 할 일이 없습니다.");
@@ -103,7 +107,7 @@ controller.addEventListener("click", function(evt) {
 
 /* executeItemNode 로 감싸서 전역변수를 없앴지만,
  * executeItemNode 에 너무 많은 로직이 다 들어가 있네요. 그 안에서도 함수를 나눠서 만들고 호출하세요.
-* if문 안에 if를 없애보려고 노력하세요. 
+* if문 안에 if를 없애보려고 노력하세요.
 * $("section.basket > ol") 이게 반복적으로 사용하는데, 변수에 담아두고 재사용하는게 더 빠릅니다.
 * for 문안에  $("section.basket > ol").children.length 이렇게 있으니 좀 보기 어렵네요. 변수로 받아두고 쓰셔도 좋겠고요.
 * $("section.basket > ol").children[i].innerHTML = toDoList[i]; 이거 제대로 화면에 들어가나요?
