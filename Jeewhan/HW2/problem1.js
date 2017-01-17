@@ -93,7 +93,7 @@ controller.addEventListener("click", function(evt) {
   executeItemNode(actionType, inputValue);
 });
 
-// 개선해야 할 점 : insertAdjacentHTML() / 전체를 다시 구현하지 않고, 추가해야 할 지점만 찾아서 넣어주기
+// 개선해야 할 점 : 전체를 다시 구현하지 않고, 추가해야 할 지점만 찾아서 넣어주기
 
 const actionObj = {
   "add" : function() {
