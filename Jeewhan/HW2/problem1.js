@@ -53,12 +53,6 @@ function executeItemNode(actionType, todoORnumber) {
 
   // --------------------
 
-  // 이미 있는 작업을 배열에 할당
-  for (let i = 0; i < sectionBasketOl().children.length; i++) {
-    toDoList.push(sectionBasketOl().children[i].innerHTML);
-  }
-  toDoList.sort(); // 가나다 정렬
-
   if (actionType === "add" && toDoList.indexOf(todoORnumber) === -1) {
     pushToDo(todoORnumber);
   }
@@ -89,6 +83,12 @@ function executeItemNode(actionType, todoORnumber) {
  // 두 변수를 executeItemNode의 Parameter로 넘겨서 호출
 
  */
+
+// 이미 있는 작업을 배열에 할당
+for (let i = 0; i < sectionBasketOl().children.length; i++) {
+  toDoList.push(sectionBasketOl().children[i].innerHTML);
+}
+toDoList.sort(); // 가나다 정렬
 
 // 아래부터는 모두 문제 조건에 제시된 코드
 var controller = document.querySelector(".controller");
