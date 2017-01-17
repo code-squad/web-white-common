@@ -11,7 +11,6 @@
 
 function executeItemNode(actionType, todoORnumber) {
 
-  // 크롱의 객체지향 예시안
   const ERROR_MSG = {
     "add" : {
       "EXIST_TODO" : "이미 등록한 일입니다."
@@ -25,11 +24,6 @@ function executeItemNode(actionType, todoORnumber) {
     return document.querySelector(element);
   }
 
-  function makeNode(tagName) {
-    return document.createElement(tagName);
-  }
-
-  // 에러메시지를 보여주는 함수, 다른 분에 대한 피드백을 반영하여 범용성을 위해서 매개변수를 하나 더 추가
   function alertMessage(target, comment) {
     target.insertAdjacentHTML("afterbegin", "<p>" + comment + "</p>");
     setTimeout(function() { target.removeChild(target.firstElementChild); }, 3000);
@@ -37,19 +31,17 @@ function executeItemNode(actionType, todoORnumber) {
 
   function pushToDo(toDo) {
     toDoList.push(toDo);
-    toDoList.sort(); // 같은 길이어도 가나다 순으로 보여지길 원함
+    toDoList.sort();
 
     toDoList.sort(function(firstElement, secondElement) {
         return firstElement.length - secondElement.length;
     });
 
     sectionBasketOl().remove();
-    $("section.basket").appendChild(makeNode("ol"));
+    $("section.basket").appendChild(document.createElement("ol"));
 
     for (let i = 0; i < toDoList.length; i++) {
       sectionBasketOl().insertAdjacentHTML("beforeend", "<li>" + toDoList[i] + "</li>");
-      // sectionBasketOl().appendChild(makeNode("li"));
-      // sectionBasketOl().children[i].innerHTML = toDoList[i];
     }
   }
 
@@ -71,17 +63,18 @@ function executeItemNode(actionType, todoORnumber) {
   }
 }
 
+
 var sectionBasketOl = function(element) {
   return document.querySelector("section.basket > ol");
 };
 
 var toDoList = [];
 
-// 이미 있는 작업을 배열에 할당
 for (let i = 0; i < sectionBasketOl().children.length; i++) {
   toDoList.push(sectionBasketOl().children[i].innerHTML);
 }
-toDoList.sort(); // 가나다 정렬
+toDoList.sort();
+
 
 var controller = document.querySelector(".controller");
 
