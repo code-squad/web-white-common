@@ -75,6 +75,7 @@ function addItem(newItem) {
 
 // -- DELETE TASK IN LIST -- //
 function removeItem(num) {
+    var msg;
     if (taskList.length <= 0){
         msg = ERROR_MSG.TODO.EMPTY;
     }
