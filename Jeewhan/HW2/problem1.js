@@ -17,10 +17,10 @@ function executeItemNode(actionType, todoORnumber) {
 
   // 크롱의 객체지향 예시안
   const ERROR_MSG = {
-	"ADD" : {
+	"add" : {
 	  "EXIST_TODO" : "이미 등록한 일입니다."
 	},
-	"REMOVE" : {
+	"remove" : {
 	  "NON_EXIST_TODO" : "삭제하려는 할 일이 없습니다."
 	},
   };
@@ -61,10 +61,10 @@ function executeItemNode(actionType, todoORnumber) {
     pushToDo(todoORnumber);
   }
   else if (actionType === "add" && toDoList.indexOf(todoORnumber) !== -1) {
-    alertMessage(message, ERROR_MSG[actionType].EXIST_TODO);
+    alertMessage(message, ERROR_MSG[actionType]["EXIST_TODO"]);
   }
   else if (actionType === "remove" && toDoList[todoORnumber - 1] === undefined) {
-    alertMessage(message, ERROR_MSG[actionType].NON_EXIST_TODO);
+    alertMessage(message, ERROR_MSG[actionType]["NON_EXIST_TODO"]);
   }
   else if (actionType === "remove" && toDoList[todoORnumber - 1] !== undefined) {
     sectionBasketOl().children[todoORnumber-1].remove();
