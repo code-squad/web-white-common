@@ -112,3 +112,22 @@ controller.addEventListener("click", function(evt) {
 */
 
 // 개선해야 할 점 : insertAdjacentHTML() / 전체를 다시 구현하지 않고, 추가해야 할 지점만 찾아서 넣어주기
+
+// 크롱의 객체지향 예시안
+const ERROR_MSG = {
+  "ADD" : {
+    "EXIST_TODO" : "이미 등록한 일입니다."
+  },
+  "REMOVE" : {
+    "NONEXIST_TODO" : "삭제하려는 할 일이 없습니다."
+  },
+};
+
+const actionObj = {
+  "add" : function() {
+    // do something
+  },
+  "remove" : function() {
+    // do something
+  },
+};
