@@ -93,7 +93,7 @@ function executeItemNode(actionType, todoORnumber) {
  */
 
 var sectionBasketOl = function(element) {
-      return document.querySelector("section.basket > ol");
+  return document.querySelector("section.basket > ol");
 };
 
 var toDoList = [];
