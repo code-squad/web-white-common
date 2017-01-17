@@ -61,10 +61,10 @@ function executeItemNode(actionType, todoORnumber) {
     pushToDo(todoORnumber);
   }
   else if (actionType === "add" && toDoList.indexOf(todoORnumber) !== -1) {
-    alertMessage(message, ERROR_MSG[actionType]["EXIST_TODO"]);
+    alertMessage(message, ERROR_MSG[actionType].EXIST_TODO);
   }
   else if (actionType === "remove" && toDoList[todoORnumber - 1] === undefined) {
-    alertMessage(message, ERROR_MSG[actionType]["NON_EXIST_TODO"]);
+    alertMessage(message, ERROR_MSG[actionType].NON_EXIST_TODO);
   }
   else if (actionType === "remove" && toDoList[todoORnumber - 1] !== undefined) {
     sectionBasketOl().children[todoORnumber-1].remove();
