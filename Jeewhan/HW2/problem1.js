@@ -54,6 +54,8 @@ function executeItemNode(actionType, todoORnumber) {
     }
   }
 
+  // --------------------
+
   // 이미 있는 작업을 배열에 할당
   for (let i = 0; i < sectionBasketOl().children.length; i++) {
     toDoList.push(sectionBasketOl().children[i].innerHTML);
