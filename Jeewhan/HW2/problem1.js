@@ -35,6 +35,8 @@ function executeItemNode(actionType, todoORnumber) {
     setTimeout(function() { target.removeChild(target.firstElementChild); }, 3000);
   }
 
+  let toDoList = [];
+
   function pushToDo(toDo) {
     toDoList.push(toDo);
     toDoList.sort(); // 같은 길이어도 가나다 순으로 보여지길 원함
@@ -51,9 +53,6 @@ function executeItemNode(actionType, todoORnumber) {
       sectionBasketOl().children[i].innerHTML = toDoList[i];
     }
   }
-
-  // 변수를 한 번에 선언하지 않고 사용하기 전에 선언 및 초기화
-  let toDoList = [];
 
   // 이미 있는 작업을 배열에 할당
   for (let i = 0; i < sectionBasketOl().children.length; i++) {
