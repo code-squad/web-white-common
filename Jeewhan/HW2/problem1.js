@@ -15,13 +15,18 @@
 
 function executeItemNode(actionType, todoORnumber) {
 
+  // 크롱의 객체지향 예시안
+  const ERROR_MSG = {
+	"ADD" : {
+	  "EXIST_TODO" : "이미 등록한 일입니다."
+	},
+	"REMOVE" : {
+	  "NON_EXIST_TODO" : "삭제하려는 할 일이 없습니다."
+	},
+  };
+
   function $(element) {
     return document.querySelector(element);
-  }
-
-  // 피드백 반영
-  function sectionBasketOl(element) {
-    return $("section.basket > ol");
   }
 
   // 에러메시지를 보여주는 함수, 다른 분에 대한 피드백을 반영하여 범용성을 위해서 매개변수를 하나 더 추가
@@ -49,7 +54,6 @@ function executeItemNode(actionType, todoORnumber) {
   }
 
   let message = $("div.message");
-  let toDoList = [];
 
   // --------------------
 
@@ -57,10 +61,10 @@ function executeItemNode(actionType, todoORnumber) {
     pushToDo(todoORnumber);
   }
   else if (actionType === "add" && toDoList.indexOf(todoORnumber) !== -1) {
-    alertMessage(message, "이미 있는 할 일입니다.");
+    alertMessage(message, ERROR_MSG[actionType].EXIST_TODO);
   }
   else if (actionType === "remove" && toDoList[todoORnumber - 1] === undefined) {
-    alertMessage(message, "삭제하려는 할 일이 없습니다.");
+    alertMessage(message, ERROR_MSG[actionType].NON_EXIST_TODO);
   }
   else if (actionType === "remove" && toDoList[todoORnumber - 1] !== undefined) {
     sectionBasketOl().children[todoORnumber-1].remove();
@@ -84,6 +88,13 @@ function executeItemNode(actionType, todoORnumber) {
 
  */
 
+var sectionBasketOl = function(element) {
+      return document.querySelector("section.basket > ol");
+};
+
+var toDoList = [];
+
+
 // 이미 있는 작업을 배열에 할당
 for (let i = 0; i < sectionBasketOl().children.length; i++) {
   toDoList.push(sectionBasketOl().children[i].innerHTML);
@@ -103,8 +114,9 @@ controller.addEventListener("click", function(evt) {
 
 // 73행까지의 코드에 대한 피드백
 
-/* executeItemNode 로 감싸서 전역변수를 없앴지만,
- * executeItemNode 에 너무 많은 로직이 다 들어가 있네요. 그 안에서도 함수를 나눠서 만들고 호출하세요.
+/*
+* executeItemNode 로 감싸서 전역변수를 없앴지만,
+* executeItemNode 에 너무 많은 로직이 다 들어가 있네요. 그 안에서도 함수를 나눠서 만들고 호출하세요.
 * if문 안에 if를 없애보려고 노력하세요.
 * $("section.basket > ol") 이게 반복적으로 사용하는데, 변수에 담아두고 재사용하는게 더 빠릅니다.
 * for 문안에  $("section.basket > ol").children.length 이렇게 있으니 좀 보기 어렵네요. 변수로 받아두고 쓰셔도 좋겠고요.
@@ -113,15 +125,6 @@ controller.addEventListener("click", function(evt) {
 
 // 개선해야 할 점 : insertAdjacentHTML() / 전체를 다시 구현하지 않고, 추가해야 할 지점만 찾아서 넣어주기
 
-// 크롱의 객체지향 예시안
-const ERROR_MSG = {
-  "ADD" : {
-    "EXIST_TODO" : "이미 등록한 일입니다."
-  },
-  "REMOVE" : {
-    "NONEXIST_TODO" : "삭제하려는 할 일이 없습니다."
-  },
-};
 
 const actionObj = {
   "add" : function() {
