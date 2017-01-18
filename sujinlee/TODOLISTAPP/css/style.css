@@ -1,0 +1,141 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+h1 {
+  font-size: 4rem;
+  font-weight: 200;
+  margin-left: 3rem; }
+
+body {
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
+  color: #475B65;
+  font-weight: 200;
+  background: #F5F5F5; }
+
+h3 {
+  color: #FD636B;
+  font-weight: 200; }
+  h3:before {
+    content: "\f046";
+    font-family: FontAwesome;
+    padding-right: 1rem; }
+
+.card {
+  width: 80%;
+  height: 60vh;
+  background: #F5F5F5; }
+
+.center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; }
+
+.basket {
+  padding: 3rem; }
+  .basket span {
+    left: 3rem; }
+  .basket li {
+    padding: 0.3rem;
+    font-size: 1.5rem;
+    width: 20rem; }
+  .basket li:after {
+    margin: 4rem; }
+  .basket button {
+    margin: 0%;
+    border-radius: 2rem;
+    width: 2rem;
+    height: 2rem;
+    float: right; }
+  .basket button:after {
+    content: "\f068";
+    font-family: FontAwesome; }
+
+.controller {
+  padding: 6rem 3rem; }
+
+.message {
+  background: #1C252C;
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  bottom: 0;
+  position: absolute;
+  left: 0; }
+  .message p {
+    text-align: center; }
+
+input {
+  font-weight: 200;
+  color: #D6D4D5;
+  font-size: 1.1rem;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  border: none;
+  border-bottom: solid 0.1rem;
+  border-color: #D6D4D5;
+  background: transparent;
+  display: block;
+  height: 2rem;
+  width: 30rem;
+  margin-bottom: 5%;
+  padding: 2% 3%;
+  position: relative;
+  z-index: 0;
+  -webkit-transition: border .25s;
+  -moz-transition: border .25s;
+  -o-transition: border .25s;
+  transition: border .25s; }
+
+.placeholder, ::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder {
+  color: #D6D4D5;
+  font-weight: 200; }
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */ }
+
+::-moz-placeholder {
+  /* Firefox 19+ */ }
+
+:-ms-input-placeholder {
+  /* IE 10+ */ }
+
+:-moz-placeholder {
+  /* Firefox 18- */ }
+
+input:focus {
+  font-weight: 200;
+  color: #475B65;
+  border-color: #475B65; }
+
+.input--container {
+  left: 50%; }
+
+/* button */
+.addWrap, .removeWrap {
+  display: flex; }
+
+button {
+  margin: 2% 3%;
+  outline: none;
+  height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 10rem;
+  border-radius: 40px;
+  background: #F5F5F5;
+  border: 2px solid #FD636B;
+  color: #FD636B;
+  letter-spacing: 1px;
+  text-shadow: 0;
+  cursor: pointer;
+  transition: all 0.25s ease; }
+  button:hover {
+    color: #F5F5F5;
+    background: #FD636B; }
+  button:active {
+    letter-spacing: 2px; }
+  button:after {
+    content: ""; }
