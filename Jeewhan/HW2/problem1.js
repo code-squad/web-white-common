@@ -6,8 +6,6 @@ var sectionBasketOl = function(element) {
   return $("section.basket > ol");
 };
 
-
-
 const ERROR_MSG = {
   "add" : "이미 등록한 일입니다.",
   "remove" : "삭제하려는 할 일이 없습니다."
