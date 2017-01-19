@@ -6,8 +6,6 @@ var sectionBasketOl = function(element) {
   return $("section.basket > ol");
 };
 
-
-
 const ERROR_MSG = {
   "add" : "이미 등록한 일입니다.",
   "remove" : "삭제하려는 할 일이 없습니다."
@@ -22,12 +20,12 @@ function checkError(type, value) {
   }
 }
 
-var buttonTag = '<button type="button" class="xButton">x</button></li>';
-
 function alertMessage(target, comment) {
   target.insertAdjacentHTML("afterbegin", "<p>" + comment + "</p>");
   setTimeout(function() { target.removeChild(target.firstElementChild); }, 3000);
 }
+
+var buttonTag = '<button type="button" class="xButton">x</button></li>';
 
 function addToDo(todo) {
 
@@ -36,8 +34,6 @@ function addToDo(todo) {
   for (let i = 0; i < toDoArr.length; i++) {
     if (todo.length <= toDoArr[i].length) {
       let insertIndex = i + 1;
-
-      lastChild = false;
       let nextNode = $("li:nth-child(" + insertIndex + ")");
 
       nextNode.insertAdjacentHTML("beforebegin", todoNode);
