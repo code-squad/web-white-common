@@ -1,0 +1,24 @@
+.github-list dt {
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding-top: 1rem;
+}
+
+.github-list dd {
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+.github-list dd, .github-list dt {
+	padding-left: 10px;
+}
+
+dd:nth-of-type(odd), dt:nth-of-type(odd) {
+    background-color: #ebe5e5;
+}
+
+.github-list  {
+	width: 500px;
+    margin-left: 1rem;
+    margin: 0px auto;
+}
