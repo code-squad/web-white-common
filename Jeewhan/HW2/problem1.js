@@ -22,12 +22,12 @@ function checkError(type, value) {
   }
 }
 
-var buttonTag = '<button type="button" class="xButton">x</button></li>';
-
 function alertMessage(target, comment) {
   target.insertAdjacentHTML("afterbegin", "<p>" + comment + "</p>");
   setTimeout(function() { target.removeChild(target.firstElementChild); }, 3000);
 }
+
+var buttonTag = '<button type="button" class="xButton">x</button></li>';
 
 function addToDo(todo) {
 
