@@ -36,8 +36,6 @@ function addToDo(todo) {
   for (let i = 0; i < toDoArr.length; i++) {
     if (todo.length <= toDoArr[i].length) {
       let insertIndex = i + 1;
-
-      lastChild = false;
       let nextNode = $("li:nth-child(" + insertIndex + ")");
 
       nextNode.insertAdjacentHTML("beforebegin", todoNode);
