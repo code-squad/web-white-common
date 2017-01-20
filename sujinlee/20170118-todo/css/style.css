@@ -1,14 +1,14 @@
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-h1 {
-  font-size: 4rem;
-  font-weight: 200;
-  margin-left: 3rem; }
-
 body {
   font-family: 'Spoqa Han Sans', 'Sans-serif';
   color: #475B65;
   font-weight: 200;
   background: #F5F5F5; }
+
+h1 {
+  font-size: 4rem;
+  font-weight: 200;
+  margin-left: 3rem; }
+
 
 h3 {
   color: #FD636B;
