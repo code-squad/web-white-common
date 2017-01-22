@@ -15,16 +15,16 @@ body {
 
 // gradient backgroud in header//
 .gradient {
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, left top, right top, from($start-bgcolor), to($end-bgcolor));
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(left, $start-bgcolor, $end-bgcolor);
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(left,  $start-bgcolor, $end-bgcolor);
-  /* IE 10 */
-  background: -ms-linear-gradient(left,  $start-bgcolor, $end-bgcolor);
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(left,  $start-bgcolor, $end-bgcolor);
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, left top, right top, from($start-bgcolor), to($end-bgcolor));
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(left, $start-bgcolor, $end-bgcolor);
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(left,  $start-bgcolor, $end-bgcolor);
+    /* IE 10 */
+    background: -ms-linear-gradient(left,  $start-bgcolor, $end-bgcolor);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(left,  $start-bgcolor, $end-bgcolor);
 }
 
 /* TYPOGRAHPY */

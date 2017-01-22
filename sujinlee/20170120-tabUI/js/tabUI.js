@@ -84,14 +84,14 @@ socialIconsBox.addEventListener("mouseleave", hideShare, false);
 
 
 function showShare(){
-    for (i=1; i<socialIcons.length; i++){
-        socialIcons[i].classList.add("eleDisplayShow");
-    }
+ for (i=1; i<socialIcons.length; i++){
+     socialIcons[i].classList.add("eleDisplayShow");
+ }
 }
 
 
 function hideShare(){
-    for (i=1; i<socialIcons.length; i++){
-        socialIcons[i].classList.remove("eleDisplayShow");
-    }
+for (i=1; i<socialIcons.length; i++){
+     socialIcons[i].classList.remove("eleDisplayShow");
+ }
 }
