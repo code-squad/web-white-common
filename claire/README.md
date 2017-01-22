@@ -31,7 +31,7 @@
     - for
     - Array
 
-- [DAY05] (https://github.com/claire0130/Front-End/tree/master/DAY05)
+- [DAY05](https://github.com/claire0130/Front-End/tree/master/DAY05)
     - git
 
 - [DAY06](https://github.com/claire0130/Front-End/blob/master/DAY06)
@@ -39,3 +39,21 @@
 
 - [DAY07](https://github.com/claire0130/Front-End/tree/master/DAY07)
     - DOM(Document Object Mode) API
+
+- [DAY08](https://github.com/claire0130/Front-End/tree/master/DAY08)
+    - function
+    - CSS(Cascading Style Sheets)
+
+- [DAY09](https://github.com/claire0130/Front-End/tree/master/DAY09)
+    - HTTP
+    - Algorithm
+
+- [DAY10](https://github.com/claire0130/Front-End/tree/master/DAY10)
+    - [Code Review] Javascript의 성능 향상을 위한 고려 사항
+
+- [DAY11](https://github.com/claire0130/Front-End/tree/master/DAY11)
+    - Code Review
+    - [To Do List] 삭제 버튼 추가
+
+- [DAY12](https://github.com/claire0130/Front-End/tree/master/DAY12)
+    - Ajax(Asynchronous JavaScript And XML)
