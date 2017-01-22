@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -8,16 +7,24 @@
     <title>tabUI</title>
     <link rel="stylesheet" href="../css/tabUI.css">
     <link rel="stylesheet" href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' >
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" >
+    <link href="https://fonts.googleapis.com/css?family=Overpass:200,300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
 </head>
 
 <body>
     <div id="wrapper">
         <div class="mainView" >
-            <header class="mainHeader" ><img src="https://avatars1.githubusercontent.com/u/1456761?v=3&s=140" width="80" >
-                <div class="userId" ><span > </span><span >nigayo</span><span > </span>
+            <header class="mainHeader" >
+                <ul class="socialIcons">
+                    <li class="icon-share"></li>
+                    <li class="icon-social-facebook"></li>
+                    <li class="icon-social-twitter"></li>
+                    <li class="icon-social-google"></li>
+                </ul>
+                <img src="https://scontent-icn1-1.cdninstagram.com/t51.2885-19/s320x320/15306097_232848667152569_1376721878055387136_a.jpg" width="80" >
+                <div class="userId" ><span > </span><span >Sujin Lee</span><span > </span>
                 </div>
-                <div class="userMessage" ><span > </span><span >안녕하세요 크롱입니다</span><span > </span>
+                <div class="userMessage" ><span > </span><span >Hello, World!</span><span > </span>
                 </div>
                 <ul class="userSNSInfo" >
                     <li ><span >review</span><span class="count" >10</span>
@@ -28,28 +35,24 @@
                     </li>
                 </ul>
             </header>
-            <nav >
+            <nav>
                 <div class="tab selectedTab" id="position" ><span > </span><span >aboutMe</span><span > </span>
                 </div>
                 <div class="tab" id="friend" ><span > </span><span >friend</span><span > </span>
                 </div>
-                <div class="tab" id="theme" ><span > </span><span >lorem</span><span > </span>
+                <div class="tab" id="theme" ><span > </span><span >theme</span><span > </span>
                 </div>
-                <div class="tab" id="news" ><span > </span><span >repository</span><span > </span>
+                <div class="tab" id="news" ><span > </span><span >news</span><span > </span>
                 </div>
             </nav>
             <section id="my_position" class="eleDisplayShow" >
-                <ul >
-                    <li >
-                        <div class="myName" >blah blah !</div>
-                        <div class="myDesc" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque recusandae hic obcaecati maxime officiis commodi! Cumque maiores maxime quam quidem deleniti, aspernatur iste, minima sit laboriosam laudantium saepe dignissimos provident.</div>
-                    </li>
-                </ul>
+
             </section>
             <section id="my_friend"> </section>
             <section id="my_theme" > </section>
             <section id="my_news"> </section>
         </div>
     </div>
+    <script src="../js/tabUI.js"></script>
 </body>
 </html>
