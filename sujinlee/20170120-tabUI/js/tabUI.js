@@ -12,52 +12,54 @@ var tabs = Array.prototype.slice.call(document.getElementsByClassName("tab"));
 var tabNum;
 var sections = Array.prototype.slice.call(document.getElementsByTagName("section")); 
 
-// The first tab should be loaded always.
-window.addEventListener('load', function(){
-        var tabNum = 0;
-        executeTabClass(tabNum);
-});
 
 // CLICK EVENT ON EACH TAB
 for (i=0; i<tabs.length; i++){
     tabs[i].addEventListener("click", function() {
         var tabNum = tabs.indexOf(this);
-        executeTabClass(tabNum);
+        executeTabClass(tabNum, "selectedTab", "eleDisplayShow");
     });
 }
 
 
-// SELECT TAB EVENT CLASS
-function executeTabClass(num){
-    tabs[num].classList.add("selectedTab");
-    sections[num].classList.add("eleDisplayShow");
+// CHAGNE TAB/ CLASSES
+function executeTabClass(num, tabClassName, sectionClassNum){
+    tabs[num].classList.add(tabClassName);
+    sections[num].classList.add(sectionClassNum);
     for (e=0; e<tabs.length; e++){
         if (e !== num){
-            tabs[e].classList.remove("selectedTab");
-            sections[e].classList.remove("eleDisplayShow");
+            tabs[e].classList.remove(tabClassName);
+            sections[e].classList.remove(sectionClassNum);
         }
     }
-    var eachUrl = urls[Object.keys(urls)[num]];
-    fecthData(eachUrl, num);
 }
 
 
-// AJAX CALLS 
-function fecthData(url, num) {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-      try {
-          var data = JSON.parse(this.responseText);
-      } catch(err){
-          console.log("fail to read data")
-          return false;
-      }
-    insertData(data, num);
+// LOAD DATA
+window.addEventListener('load', function(){
+    for (i=0; i<tabs.length; i++){
+        fecthData(i);
     }
-  };
-  xhttp.open("GET", url, true);
-  xhttp.send();
+});
+
+
+// AJAX CALLS 
+function fecthData(num) {
+    var url = urls[Object.keys(urls)[num]];
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        try {
+            var data = JSON.parse(this.responseText);
+        } catch(err){
+            console.log("fail to read data")
+            return false;
+        }
+        insertData(data, num);
+        }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();
 }
 
 
@@ -65,9 +67,8 @@ function fecthData(url, num) {
 function insertData(data, num) {
     var parentNode = Array.prototype.slice.call(document.getElementsByTagName('section'))[num];
     var ul = parentNode.getElementsByTagName('ul');
-    if (ul.length == 0) {
-        parentNode.insertAdjacentHTML('beforeend', '<ul><li><div class="myName">'+data.title+'</div><div class="myDesc">'+data.body+'</div></li></ul>')
-   }
+    var content = '<ul><li><div class="myName">'+data.title+'</div><div class="myDesc">'+data.body+'</div></li></ul>'
+    parentNode.insertAdjacentHTML('beforeend', content);
 }
 
 
@@ -76,15 +77,18 @@ var rootShareIcon = document.getElementsByClassName('icon-share')[0];
 var socialIconsBox = document.getElementsByClassName('socialIcons')[0];
 var socialIcons = socialIconsBox.children;
 
+
 // MOUSE EVENT ON SOCIAL ICONS
 rootShareIcon.addEventListener("mouseenter", showShare, false);
 socialIconsBox.addEventListener("mouseleave", hideShare, false);
+
 
 function showShare(){
  for (i=1; i<socialIcons.length; i++){
      socialIcons[i].classList.add("eleDisplayShow");
  }
 }
+
 
 function hideShare(){
 for (i=1; i<socialIcons.length; i++){
