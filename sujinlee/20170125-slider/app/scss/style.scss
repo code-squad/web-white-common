@@ -1,0 +1,80 @@
+$box-w: 600px;
+$box-h: 400px;
+
+button {
+    margin: 1rem;
+    padding: 1rem;
+}
+.wrapper {
+    width: $box-w + 10;
+	height: $box-h + 10;
+    border: black solid 1px;
+    position: absolute;
+    overflow: hidden;
+    
+}
+
+.mainView {
+    position:relative;
+    //transition: transform .4s; //linear;
+    display: inline-flex;
+    //animation: moveSilde 5s;
+}
+
+@keyframes moveSilde{  
+  0%  {
+    left: 0%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+// @keyframes moveSilde{  
+//   0%  {
+//     left: 0%;
+//   }
+//   25% {
+//     left: -100%;
+//   }
+//   50% {
+//       left: -200%;
+//   }
+//   75% {
+//       left: -300%;
+//   }
+//   100% {
+//       left: -400%;
+//   }
+// }
+
+section {
+    width: $box-w;
+    height: $box-h;
+}
+
+$frist-color: blue;
+$second-color: yellow;
+$third-color: green;
+$fourth-color: red;
+
+
+section:nth-child(1){
+    background: $frist-color;
+    
+}
+
+section:nth-child(2){
+    background: $second-color;
+}
+
+section:nth-child(3){
+    background: $third-color;
+}
+
+section:nth-child(4){
+   // animation-delay: 1000ms;
+
+    background: $fourth-color;
+}
+

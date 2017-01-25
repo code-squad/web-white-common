@@ -1,0 +1,36 @@
+button {
+  margin: 1rem;
+  padding: 1rem; }
+
+.wrapper {
+  width: 610px;
+  height: 410px;
+  border: black solid 1px;
+  position: absolute;
+  overflow: hidden; }
+
+.mainView {
+  position: relative;
+  display: inline-flex; }
+
+@keyframes moveSilde {
+  0% {
+    left: 0%; }
+  100% {
+    left: -100%; } }
+
+section {
+  width: 600px;
+  height: 400px; }
+
+section:nth-child(1) {
+  background: blue; }
+
+section:nth-child(2) {
+  background: yellow; }
+
+section:nth-child(3) {
+  background: green; }
+
+section:nth-child(4) {
+  background: red; }
