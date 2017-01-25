@@ -7,7 +7,7 @@ var urls = {
 }
 
 
-// TAB UI
+// TAB ELEMENTS
 var tabs = Array.prototype.slice.call(document.getElementsByClassName("tab"));    
 var tabNum;
 var sections = Array.prototype.slice.call(document.getElementsByTagName("section")); 
@@ -25,11 +25,8 @@ nav.addEventListener("click", function(evt){
 );
 
 
-// CHAGNE TAB/ CLASSES
-//var selectedTabs = Array.prototype.slice.call(document.getElementsByClassName("selectedTab")); 
-
+// CHAGNE TAB CLASSES
 function switchTabClass(num, tabClassName, sectionClassName){
-    //console.log(tabs.classList);
     tabs[num].classList.add(tabClassName);
     sections[num].classList.add(sectionClassName);
     for (var e=0; e<tabs.length; e++){
@@ -95,8 +92,9 @@ function showShare(addClassName){
  }
 }
 
-function hideShare(){
+
+function hideShare(removeClassName){
 for (i=1; i<socialIcons.length; i++){
-     socialIcons[i].classList.remove(addClassName);
+     socialIcons[i].classList.remove(removeClassName);
  }
 }
