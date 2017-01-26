@@ -1,0 +1,97 @@
+.wrap {
+  width: 600px;
+  height: 300px;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* 슬라이드 */
+
+.slideBox {
+  width: 600px;
+  height: 300px;
+  position: relative;
+  text-align: center;
+  line-height: 300px;
+}
+
+.slide {
+  width: 600px;
+  height: 300px;
+  position: absolute;
+}
+
+.slide1 {
+  background-color: slategray;
+}
+
+.slide2 {
+  background-color: pink;
+}
+
+.slide3 {
+  background-color: skyblue;
+}
+
+.slide4 {
+  background-color: black;
+}
+
+.slide5 {
+  background-color: green;
+}
+
+/* 화살표 */
+.directionBox {
+  position: absolute;
+  top: 130px;
+  font-size: 40px;
+  width: 600px;
+}
+
+.left {
+  position: absolute;
+  left: 50px;
+  cursor: w-resize;
+}
+
+.right {
+  position: absolute;
+  right: 50px;
+  cursor: e-resize;
+}
+
+
+/* 인디케이터 */
+
+.indicator {
+  position: absolute;;
+  top: 185px;
+  display: inline;
+  left: 290px;
+  font-size: 100px;
+}
+
+.indicator > div {
+  position: absolute;
+}
+
+.indicator > div:nth-child(1) {
+  left: -100px;
+}
+
+.indicator > div:nth-child(2) {
+  left: -50px;
+}
+
+.indicator > div:nth-child(3) {
+  left: 0px;
+}
+
+.indicator > div:nth-child(4) {
+  left: 50px;
+}
+
+.indicator > div:nth-child(5) {
+  left: 100px;
+}
