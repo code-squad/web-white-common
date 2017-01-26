@@ -22,11 +22,11 @@
 }
 
 .slide1 {
-  background-color: slategray;
+  background-color: pink;
 }
 
 .slide2 {
-  background-color: pink;
+  background-color: lightsteelblue;
 }
 
 .slide3 {
@@ -34,11 +34,11 @@
 }
 
 .slide4 {
-  background-color: black;
+  background-color: cadetblue;
 }
 
 .slide5 {
-  background-color: green;
+  background-color: forestgreen;
 }
 
 /* 화살표 */

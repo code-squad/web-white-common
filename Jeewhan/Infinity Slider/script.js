@@ -1,40 +1,43 @@
-// TODO: 오른쪽을 누르면 0번을, 왼쪽을 누르면 MAX번을 가져오도록 할 것
-
 var slideBox = document.querySelector(".slideBox");
 var indicator = document.querySelector(".indicator");
+var directionBox = document.querySelector(".directionBox")
 var slideWidth = window.getComputedStyle(slideBox.firstElementChild).getPropertyValue("width").slice(0,-2) * 1;
 
-var bifurcation = {
-  left: slideWidth,
-  right: -slideWidth
-}
+var bifurcation = { left: slideWidth, right: -slideWidth };
+
 
 function getSlideColor(element) {
   return window.getComputedStyle(element).getPropertyValue("background-color")
 }
 
-function cloneGenerate(clone, color, xValue, direction) {
-  clone.innerHTML = slideBox.firstElementChild.innerHTML;
+function getLeftValue(node) {
+  return window.getComputedStyle(node).getPropertyValue("left").slice(0,-2) * -1;
+}
+
+function cloneGenerate(clone, color, direction, xValue) {
+  if (direction === "left") { clone.innerHTML = slideBox.lastElementChild.innerHTML; }
+  else if (direction === "right") { clone.innerHTML = slideBox.firstElementChild.innerHTML; }
   clone.style.background = color;
   clone.style.left = (xValue + bifurcation[direction]) * -1 + "px";
 }
 
-function moveSlide(direction, xValue, refer) {
-  if (direction === "left" && xValue === refer) {
+
+function moveSlide(direction, xValue) {
+  if (direction === "left") {
     let lastSlideColor = getSlideColor(slideBox.lastElementChild);
     let clone = slideBox.lastElementChild.cloneNode();
 
-    cloneGenerate(clone, lastSlideColor, xValue, direction);
+    cloneGenerate(clone, lastSlideColor, direction, xValue);
 
     slideBox.insertBefore(clone, slideBox.firstElementChild);
 
     slideBox.lastElementChild.remove();
   }
-  else if (direction === "right" && xValue === refer) {
+  else if (direction === "right") {
     let firstSlideColor = getSlideColor(slideBox.firstElementChild);
     let clone = slideBox.firstElementChild.cloneNode();
 
-    cloneGenerate(clone, firstSlideColor, xValue, direction);
+    cloneGenerate(clone, firstSlideColor, direction, xValue);
 
     let referenceNode = slideBox.lastElementChild;
     referenceNode.parentNode.insertBefore(clone, referenceNode.nextSibling);
@@ -43,19 +46,25 @@ function moveSlide(direction, xValue, refer) {
   }
 }
 
+
 function controlBox(direction) {
   let xValue = slideBox.style.transform.replace(/translate3d\((.?\d+)px.+/, "$1") * 1;
-  let firstSlideLeft = window.getComputedStyle(slideBox.firstElementChild).getPropertyValue("left").slice(0,-2) * -1;
-  let lastSlideLeft = window.getComputedStyle(slideBox.lastElementChild).getPropertyValue("left").slice(0,-2) * -1;
+  let firstSlideLeft = getLeftValue(slideBox.firstElementChild);
+  let lastSlideLeft = getLeftValue(slideBox.lastElementChild);
 
-  if (direction === "left" && xValue === firstSlideLeft) { moveSlide(direction, xValue, firstSlideLeft); slideBox.style.transition = "none"; }
-  else if (direction === "right" && xValue === lastSlideLeft) { moveSlide(direction, xValue, lastSlideLeft); slideBox.style.transition = "none"; }
-
+  if ((direction === "left" && xValue === firstSlideLeft) ||
+     (direction === "right" && xValue === lastSlideLeft)) {
+    moveSlide(direction, xValue);
+  }
   slideBox.style.transition = "all 0.5s ease-in-out";
   slideBox.style.transform = "translate3d(" + (xValue + bifurcation[direction]) + "px, 0, 0)";
 }
 
-document.querySelector(".directionBox").addEventListener("click", function(evt) { controlBox(evt.target.className) });
+
+directionBox.addEventListener("click", function(evt) {
+  controlBox(evt.target.className)
+});
+
 
 indicator.addEventListener("click", function(evt) {
   let slideAll = document.querySelectorAll("div.slide");
@@ -67,6 +76,6 @@ indicator.addEventListener("click", function(evt) {
       break;
     }
   }
-  slideBox.style.transition = "all 0.5s ease-in-out";
+  slideBox.style.transition = "none";
   slideBox.style.transform = "translate3d(" + location + "px, 0, 0)";
 });
