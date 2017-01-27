@@ -62,11 +62,11 @@ function controlBox(direction) {
 
 
 directionBox.addEventListener("click",
-  evt => { controlBox(evt.target.className); }
+  (evt) => { controlBox(evt.target.className); }
 );
 
 
-indicator.addEventListener("click", evt => {
+indicator.addEventListener("click", (evt) => {
   let slideAll = document.querySelectorAll("div.slide");
   let iconIndex = evt.target.className.replace(/circle(\d+)$/, "$1") * 1;
   let location = 0;
