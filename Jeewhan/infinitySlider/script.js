@@ -1,13 +1,13 @@
 var slideBox = document.querySelector(".slideBox");
 var indicator = document.querySelector(".indicator");
-var directionBox = document.querySelector(".directionBox")
-var slideWidth = window.getComputedStyle(slideBox.firstElementChild).getPropertyValue("width").slice(0,-2) * 1;
+var directionBox = document.querySelector(".directionBox");
+const slideWidth = window.getComputedStyle(slideBox.firstElementChild).getPropertyValue("width").slice(0,-2) * 1;
 
-var bifurcation = { left: slideWidth, right: -slideWidth };
+const bifurcation = { left: slideWidth, right: -slideWidth };
 
 
 function getSlideColor(element) {
-  return window.getComputedStyle(element).getPropertyValue("background-color")
+  return window.getComputedStyle(element).getPropertyValue("background-color");
 }
 
 function getLeftValue(node) {
@@ -54,25 +54,26 @@ function controlBox(direction) {
 
   if ((direction === "left" && xValue === firstSlideLeft) ||
      (direction === "right" && xValue === lastSlideLeft)) {
-    moveSlide(direction, xValue);
+       moveSlide(direction, xValue);
   }
   slideBox.style.transition = "all 0.5s ease-in-out";
   slideBox.style.transform = "translate3d(" + (xValue + bifurcation[direction]) + "px, 0, 0)";
 }
 
 
-directionBox.addEventListener("click", function(evt) {
-  controlBox(evt.target.className)
-});
+directionBox.addEventListener("click",
+  evt => { controlBox(evt.target.className); }
+);
 
 
-indicator.addEventListener("click", function(evt) {
+indicator.addEventListener("click", evt => {
   let slideAll = document.querySelectorAll("div.slide");
   let iconIndex = evt.target.className.replace(/circle(\d+)$/, "$1") * 1;
+  let location = 0;
 
-  for (slide of slideAll) {
+  for (let slide of slideAll) {
     if (iconIndex === slide.className.slice(-1) * 1) {
-      var location = window.getComputedStyle(slide).getPropertyValue("left").slice(0,-2) * -1;
+      location = window.getComputedStyle(slide).getPropertyValue("left").slice(0,-2) * -1;
       break;
     }
   }
