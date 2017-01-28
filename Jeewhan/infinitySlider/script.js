@@ -6,38 +6,31 @@ const slideWidth = window.getComputedStyle(slideBox.firstElementChild).getProper
 const bifurcation = { left: slideWidth, right: -slideWidth };
 
 
-function getSlideColor(element) {
-  return window.getComputedStyle(element).getPropertyValue("background-color");
-}
-
 function getLeftValue(node) {
   return window.getComputedStyle(node).getPropertyValue("left").slice(0,-2) * -1;
 }
 
-function cloneGenerate(clone, color, direction, xValue) {
+function cloneGenerate(clone, direction, xValue) {
   if (direction === "left") { clone.innerHTML = slideBox.lastElementChild.innerHTML; }
   else if (direction === "right") { clone.innerHTML = slideBox.firstElementChild.innerHTML; }
-  clone.style.background = color;
   clone.style.left = (xValue + bifurcation[direction]) * -1 + "px";
 }
 
 
 function moveSlide(direction, xValue) {
   if (direction === "left") {
-    let lastSlideColor = getSlideColor(slideBox.lastElementChild);
     let clone = slideBox.lastElementChild.cloneNode();
 
-    cloneGenerate(clone, lastSlideColor, direction, xValue);
+    cloneGenerate(clone, direction, xValue);
 
     slideBox.insertBefore(clone, slideBox.firstElementChild);
 
     slideBox.lastElementChild.remove();
   }
   else if (direction === "right") {
-    let firstSlideColor = getSlideColor(slideBox.firstElementChild);
     let clone = slideBox.firstElementChild.cloneNode();
 
-    cloneGenerate(clone, firstSlideColor, direction, xValue);
+    cloneGenerate(clone, direction, xValue);
 
     let referenceNode = slideBox.lastElementChild;
     referenceNode.parentNode.insertBefore(clone, referenceNode.nextSibling);
@@ -56,7 +49,6 @@ function controlBox(direction) {
      (direction === "right" && xValue === lastSlideLeft)) {
        moveSlide(direction, xValue);
   }
-  slideBox.style.transition = "all 0.5s ease-in-out";
   slideBox.style.transform = "translate3d(" + (xValue + bifurcation[direction]) + "px, 0, 0)";
 }
 
@@ -77,6 +69,5 @@ indicator.addEventListener("click", (evt) => {
       break;
     }
   }
-  slideBox.style.transition = "none";
   slideBox.style.transform = "translate3d(" + location + "px, 0, 0)";
 });
