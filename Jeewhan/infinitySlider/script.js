@@ -45,7 +45,8 @@ function controlBox(direction) {
 }
 
 directionBox.addEventListener("click",
-  (evt) => { controlBox(evt.target.className); });
+  (evt) => { controlBox(evt.target.className); }
+);
 
 indicator.addEventListener("click", (evt) => {
   const iconIndex = evt.target.className.replace(/circle(\d+)$/, "$1") * 1;
