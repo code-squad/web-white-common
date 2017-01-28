@@ -25,8 +25,7 @@ function moveSlide(direction, xValue) {
     clone.innerHTML = slideBox.firstElementChild.innerHTML;
     clone.style.left = (xValue + bifurcation[direction]) * -1 + "px";
 
-    let referenceNode = slideBox.lastElementChild;
-    referenceNode.parentNode.insertBefore(clone, referenceNode.nextSibling);
+    slideBox.appendChild(clone);
 
     slideBox.firstElementChild.remove();
   }
