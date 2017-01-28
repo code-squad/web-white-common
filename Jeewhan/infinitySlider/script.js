@@ -9,8 +9,8 @@ const slideWidth = window.getComputedStyle(slideBox.firstElementChild).getProper
 
 const bifurcation = { left: slideWidth, right: -slideWidth };
 
-function getLeftValue(node) {
-  return window.getComputedStyle(node).getPropertyValue("left").slice(0,-2) * -1;
+function getLeftValue(element) {
+  return window.getComputedStyle(element).getPropertyValue("left").slice(0,-2) * -1;
 }
 
 function moveSlide(direction, xValue) {
