@@ -10,18 +10,11 @@ function getLeftValue(node) {
   return window.getComputedStyle(node).getPropertyValue("left").slice(0,-2) * -1;
 }
 
-function cloneGenerate(clone, direction, xValue) {
-  if (direction === "left") { clone.innerHTML = slideBox.lastElementChild.innerHTML; }
-  else if (direction === "right") { clone.innerHTML = slideBox.firstElementChild.innerHTML; }
-  clone.style.left = (xValue + bifurcation[direction]) * -1 + "px";
-}
-
-
 function moveSlide(direction, xValue) {
   if (direction === "left") {
     let clone = slideBox.lastElementChild.cloneNode();
-
-    cloneGenerate(clone, direction, xValue);
+    clone.innerHTML = slideBox.lastElementChild.innerHTML;
+    clone.style.left = (xValue + bifurcation[direction]) * -1 + "px";
 
     slideBox.insertBefore(clone, slideBox.firstElementChild);
 
@@ -29,8 +22,8 @@ function moveSlide(direction, xValue) {
   }
   else if (direction === "right") {
     let clone = slideBox.firstElementChild.cloneNode();
-
-    cloneGenerate(clone, direction, xValue);
+    clone.innerHTML = slideBox.firstElementChild.innerHTML;
+    clone.style.left = (xValue + bifurcation[direction]) * -1 + "px";
 
     let referenceNode = slideBox.lastElementChild;
     referenceNode.parentNode.insertBefore(clone, referenceNode.nextSibling);
