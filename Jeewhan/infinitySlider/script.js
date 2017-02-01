@@ -12,21 +12,11 @@ function getLeftValue(element) {
 // 무한스크롤을 위해 반대방향 끝에 있는 슬라이드를 이동
 function moveEdgeSlide(direction, xValue) {
   if (direction === "left") {
-    const clone = slideBox.lastElementChild.cloneNode();
-
-    clone.innerHTML = slideBox.lastElementChild.innerHTML;
-    clone.style.left = `${(xValue + bifurcation[direction]) * -1}px`;
-
-    slideBox.insertBefore(clone, slideBox.firstElementChild);
-    slideBox.lastElementChild.remove();
+    slideBox.insertBefore(slideBox.lastElementChild, slideBox.firstElementChild);
+    slideBox.firstElementChild.style.left = `${(xValue + bifurcation[direction]) * -1}px`;
   } else {
-    const clone = slideBox.firstElementChild.cloneNode();
-
-    clone.innerHTML = slideBox.firstElementChild.innerHTML;
-    clone.style.left = `${(xValue + bifurcation[direction]) * -1}px`;
-
-    slideBox.appendChild(clone);
-    slideBox.firstElementChild.remove();
+    slideBox.appendChild(slideBox.firstElementChild);
+    slideBox.lastElementChild.style.left = `${(xValue + bifurcation[direction]) * -1}px`;
   }
 }
 
@@ -43,7 +33,7 @@ function moveBox(direction) {
   slideBox.style.transform = `translate3d(${xValue + bifurcation[direction]}px, 0, 0)`;
 }
 
-// DOM이 다 불려진 뒤에, 화살표와 인디케이터에 이벤트 등록
+// DOM이 다 불려진 뒤에, 자동움직임과 화살표 그리고 인디케이터에 이벤트 등록
 document.addEventListener("DOMContentLoaded", () => {
   directionBox.addEventListener("click",
     (evt) => { moveBox(evt.target.className); }
@@ -61,8 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     slideBox.style.transform = `translate3d(${getLeftValue(location[0])}px, 0, 0)`;
   });
+
+  // 첫 번째 인자에 함수 호출이 아닌 함수 자체가 담겨야만 반복실행된다
+  setInterval(() => { moveBox("right"); }, 3000);
 });
 
 // TODO: slide를 absoulute + left가 아닌 relative + float left로 바꿀 수 있는가?
 // TODO: indicator 클릭시 무조건 오른쪽으로 흐르도록 수정
 // (5->1->2->3->4, 현재 화면 1번에서 5번 indicator를 누르면 오른쪽으로 가면서 2,3,4를 스치고 5번을 만나도록)
+// TODO: 몇 초마다 슬라이드가 넘어가도록 하고 싶다면, setTimeout을 사용할 것(재귀호출)
+// 슬라이드 개수를 늘려도 잘 작동하는가?
