@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // 첫 번째 인자에 함수 호출이 아닌 함수 자체가 담겨야만 반복실행된다
-  setInterval(() => { moveBox("right"); }, 3000);
+  // setInterval(() => { moveBox("right"); }, 3000);
 });
 
 // TODO: slide를 absoulute + left가 아닌 relative + float left로 바꿀 수 있는가?
