@@ -80,4 +80,9 @@
 #2017.3.6(월) 작성 
   - 화이트코스 복습 스터디
   - 알고리즘 자바 구현 스터디 
+  - top NAV 메뉴 구현 
+
+#2017.3.7(화) 작성 
+  - 생활코딩 HTML 인강 시청
+  - 알고리즘 자바 구현(조세퍼스문제(https://www.acmicpc.net/problem/1158), 에디터(https://www.acmicpc.net/problem/1406)) 
   - top NAV 메뉴 구현
