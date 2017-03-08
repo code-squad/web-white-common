@@ -92,4 +92,11 @@
     - 기본 태그에 대한 정보 
     - HTML5에서 새롭게 도입된 태그와 input 유효성 체크 정보 
     - SEO(검색엔진최적화)의 개념, 검색엔지에 노출이 잘되기 위한 홈페이지 구성방법 
+  - 알고리즘 문제 풀이 - 1로만들기(https://www.acmicpc.net/problem/1463) 
+    - 다이나믹 프로그래밍 => 내가 생각하기에 반복적이며(optimal substructure), 순차적인 문제(overlapping subproblem)를 의미하는 것 같다.
+    - 문제풀기위한 방법 - memozation (메모리에 값을 저장해 두어서 활용한다.) 
+    - 수식 memo[n] = memo[n-1] + 1 
+    -     memo[n] = memo[n/3] + 1
+    -     memo[n] = memo[n/2] + 1 
+    - 하지만 무슨 말인지 아직 이해가 가지 않는다.
   
