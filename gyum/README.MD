@@ -85,4 +85,11 @@
 #2017.3.7(화) 작성 
   - 생활코딩 HTML 인강 시청
   - 알고리즘 자바 구현(조세퍼스문제(https://www.acmicpc.net/problem/1158), 에디터(https://www.acmicpc.net/problem/1406)) 
-  - top NAV 메뉴 구현
+  - top NAV 메뉴 구현 
+
+#2017.3.8(수) 작성 
+  - 생활코딩 HTML 강의 
+    - 기본 태그에 대한 정보 
+    - HTML5에서 새롭게 도입된 태그와 input 유효성 체크 정보 
+    - SEO(검색엔진최적화)의 개념, 검색엔지에 노출이 잘되기 위한 홈페이지 구성방법 
+  
