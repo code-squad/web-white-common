@@ -1,3 +1,4 @@
+// Comment
 const slideBox = document.querySelector(".slideBox");
 const indicator = document.querySelector(".indicator");
 const directionBox = document.querySelector(".directionBox");
@@ -61,3 +62,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // (5->1->2->3->4, 현재 화면 1번에서 5번 indicator를 누르면 오른쪽으로 가면서 2,3,4를 스치고 5번을 만나도록)
 // TODO: 몇 초마다 슬라이드가 넘어가도록 하고 싶다면, setTimeout을 사용할 것(재귀호출)
 // 슬라이드 개수를 늘려도 잘 작동하는가?
+//
+// Comment2
